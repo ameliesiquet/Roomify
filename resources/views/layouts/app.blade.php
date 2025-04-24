@@ -30,6 +30,7 @@
 
             <!-- Page Content -->
             <main>
+                <h1>Hallo</h1>
                 {{ $slot }}
             </main>
         </div>
