@@ -28,11 +28,12 @@
                 </header>
             @endif
 
-            <!-- Page Content -->
-            <main>
-                <h1>Hallo</h1>
+            {{-- MAIN --}}
+            <main class="p-4">
+                <p>Hallo (app.blade)</p>
                 {{ $slot }}
             </main>
+            @livewireScripts
         </div>
     </body>
 </html>
