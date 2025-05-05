@@ -1,35 +1,19 @@
 <?php
 
+use App\Livewire\Pages\Dashboard;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
-    Route::view('shopping', 'shopping')
-        ->middleware(['auth', 'verified'])
-        ->name('shopping');
-
-    Route::get('/rooms', function () {
-        return view('rooms');
-    })->name('rooms');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/shopping', Dashboard::class)->name('shopping');
+    Route::get('/rooms', Dashboard::class)->name('rooms');
     //room item detail, wenn man auf ein item klickt was in rooms ist
+    Route::get('/items', Dashboard::class)->name('items');
+    Route::get('/budget', Dashboard::class)->name('budget');
+    Route::get('/profile', Dashboard::class)->name('profile');
 
-    Route::get('/items', function () {
-        return view('items');
-    })->name('items');
-
-    Route::get('/budget', function () {
-        return view('budget');
-    })->name('budget');
 });
-
-
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
 
 require __DIR__.'/auth.php';
