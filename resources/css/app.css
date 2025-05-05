@@ -1,1 +1,7 @@
 @import "tailwindcss";
+@theme {
+    --color-sand: #BDB7AC;
+    --color-myblack: #2B2B2B;
+    --color-turquoise: #446163;
+    --font-sans: "Spartan", "sans-serif";
+}
