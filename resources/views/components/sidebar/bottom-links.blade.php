@@ -9,9 +9,5 @@
             <x-button>Logout</x-button>
         </form>
     </li>
-    <button class="bg-turquoise hover:bg-gray-300 p-4 z-50">
-        Test Button
-    </button>
-
 </ul>
 

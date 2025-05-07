@@ -7,9 +7,3 @@
     --color-turquoise: #446163;
     --font-sans: "Spartan", "sans-serif";
 }
-@media (hover: hover) {
-    /* Alle Hover-Effekte, die du auf mobilen Geräten haben möchtest */
-    .hover\:bg-turquoise:hover {
-        background-color: #EEEEEE; /* Deine türkise Farbe */
-    }
-}
