@@ -27,5 +27,4 @@
         </span>
         @endif
     </a>
-
 </li>
