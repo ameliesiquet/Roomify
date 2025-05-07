@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('partials.head')
 
-<body class="font-sans  antialiased">
+<body class="font-sans  antialiased bg-mywhite">
 <div class="min-h-screen bg-sand">
     <livewire:layout.navigation/>
     <!-- Page Heading -->
@@ -15,7 +15,7 @@
     @endif
 
     {{-- MAIN --}}
-    <main class="p-4">
+    <main class="p-4 bg-mywhite">
         <p>Hallo (app.blade)</p>
         {{ $slot }}
     </main>
