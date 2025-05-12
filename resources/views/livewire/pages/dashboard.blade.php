@@ -1,3 +1,3 @@
-<div>
-    <h1>Dashboard</h1>
-</div>
+<section>
+    <p>hallo</p>
+</section>
