@@ -3,14 +3,14 @@
     'name',
     'model' => '',
     'placeholder' => '',
-    'asterix' => false,
+    'required' => false,
 ])
 
 <div {{ $attributes->merge(['class' => 'm-0 p-0']) }}>
-    <label for="{{ $name }}" class="relative mb-1.5  block text-sm text-myblack ">
+    <label for="{{ $name }}" class="relative mb-1.5  block text-xs text-myblack ">
         {{ ucfirst($label) }}
-        @if($asterix)
-            <span aria-hidden="true" class="absolute -top-0.5 ml-0.5 text-turquoise">*</span>
+        @if($required)
+            <span aria-hidden="true" class="absolute -top-0.1 ml-1 text-turquoise text-2xl leading-none">*</span>
         @endif
     </label>
 

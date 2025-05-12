@@ -2,10 +2,10 @@
     'label',
     'name',
     'model' => '',
-    'asterix' => false,
+    'required' => false,
 ])
 
-<x-form.field-label-input :label="$label" :name="$name" :model="$model" :asterix="$asterix">
+<x-form.field-label-input :label="$label" :name="$name" :model="$model" :required="$required">
     <div x-data="{ show: false }" class="@error($name) input-invalid @enderror">
         <input
             id="{{ $name }}"
