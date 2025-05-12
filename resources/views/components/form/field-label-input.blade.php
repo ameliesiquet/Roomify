@@ -15,7 +15,7 @@
         wire:model.blur="{{ $model }}"
         placeholder="{{ $placeholder }}"
         {{ $attributes->merge([
-            'class' => 'w-full pt-4 pb-2 px-4 placeholder:text-0.3em text-xs  border border-myblack  rounded-lg text-myblack ' . ($errors->has($name) ? ' input-invalid' : ''),
+            'class' => 'w-full pt-2.5 rounded-md text-0.2em  pb-1.5 lg:pt-4 lg:pb-2 px-4 lg:text-xs  border border-myblack  lg:rounded-lg text-myblack ' . ($errors->has($name) ? ' input-invalid' : ''),
         ]) }}
     >
 </x-form.label-errors>
