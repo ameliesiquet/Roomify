@@ -110,4 +110,4 @@ new #[Layout('layouts.guest')] class extends Component {
         </div>
     </form>
 </div>
-
+<!-- TODO : make register fuctionnal, check login, check responisv of forms, make camera icon fucntional -->

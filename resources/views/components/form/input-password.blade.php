@@ -5,17 +5,20 @@
             <span aria-hidden="true" class="absolute -top-0.1 ml-1 text-turquoise text-2xl leading-none">*</span>
         @endif
     </label>
-    <input
-        id="{{ $name }}"
-        name="{{ $name }}"
-        wire:model.blur="{{ $model }}"
-        placeholder="••••••••"
-        :type="show ? 'text' : 'password'"
-        class="m-0 pt-4 pb-2 px-4 block w-full border border-myblack  rounded-lg text-myblack"
-        {{ $attributes }}
-    >
-    <div class="absolute top-9 right-3 flex justify-center items-center space-x-1 cursor-pointer">
-        <x-svg.eye/>
-        <x-svg.eye-off/>
+    <div class="flex flex-row justify-between border border-myblack  rounded-lg text-myblack pr-2">
+        <input
+            id="{{ $name }}"
+            name="{{ $name }}"
+            wire:model.blur="{{ $model }}"
+            placeholder="••••••••"
+            :type="show ? 'text' : 'password'"
+            class="m-0 text-0.2em  pb-1.5 lg:pt-4 lg:pb-2 px-4 lg:text-xs  block w-full "
+            {{ $attributes }}
+        >
+        <div class="  flex justify-center items-center space-x-1 cursor-pointer">
+            <x-svg.eye />
+            <x-svg.eye-off />
+        </div>
     </div>
+
 </div>

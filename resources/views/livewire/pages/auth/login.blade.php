@@ -14,6 +14,7 @@ new #[Layout('layouts.guest')] class extends Component {
     public function login(): void
     {
         $this->validate();
+        logger('Validation passed, now calling authenticate');
 
         $this->form->authenticate();
 
@@ -26,7 +27,7 @@ new #[Layout('layouts.guest')] class extends Component {
     <h1 class="uppercase text-center text-turquoise">Login</h1>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')"/>
-    <form wire:submit="login" class="bg-light-sand py-4 px-8 rounded-xl shadow-md">
+    <form wire:submit="login" class="bg-light-sand py-4 px-8 rounded-xl shadow-md flex flex-col gap-4">
         <!--Username -->
         <x-form.field-label-input
             label="Username"
@@ -40,33 +41,33 @@ new #[Layout('layouts.guest')] class extends Component {
             class="lowercase"
         />
         <!-- Password -->
-        <x-form.input-password
-            label="Password"
-            name="password"
-            model="form.password"
-            autocomplete="current-password"
-            required
-        />
-        <!-- Remember Me -->
-        <div class="block mt-4">
+        <div class="block flex flex-col gap-2">
+            <x-form.input-password
+                label="Password"
+                name="password"
+                model="form.password"
+                autocomplete="current-password"
+                required
+            />
             <label for="remember" class="inline-flex items-center">
                 <input wire:model="form.remember" id="remember" type="checkbox"
                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <span class="ms-2 text-xs text-gray-600">{{ __('Remember me') }}</span>
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex flex-col gap-2 items-center justify-end mt-4">
+            <x-button class="ms-3">
+                {{ __('Log in') }}
+            </x-button>
+
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                <a class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                    href="{{ route('password.request') }}" wire:navigate>
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
     </form>
 </div>
