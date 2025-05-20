@@ -26,16 +26,32 @@ class LoginForm extends Form
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+
     public function authenticate(): void
     {
-
         $this->ensureIsNotRateLimited();
 
-        if (!Auth::attempt(['username' => $this->username, 'password' => $this->password], $this->remember)) {
+        $loginField = filter_var($this->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        $user = \App\Models\User::where($loginField, $this->username)->first();
+
+        if (!$user) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'form.username' => trans('auth.failed'),
+                'username' => trans('auth.usernamefailed'),
+            ]);
+        }
+
+        if (!Auth::attempt([
+            $loginField => $this->username,
+            'password' => $this->password,
+        ], $this->remember)) {
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'password' => trans('auth.passwordfailed'),
             ]);
         }
 
@@ -57,7 +73,7 @@ class LoginForm extends Form
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
         throw ValidationException::withMessages([
-            'form.email' => trans('auth.throttle', [
+            'form.username' => trans('auth.throttle', [
                 'seconds' => $seconds,
                 'minutes' => ceil($seconds / 60),
             ]),
