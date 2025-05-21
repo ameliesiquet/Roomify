@@ -24,5 +24,4 @@
         @endforeach
     </ul>
     @enderror
-
 </div>
