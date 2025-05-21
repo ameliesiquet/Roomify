@@ -57,8 +57,15 @@
                 <x-sidebar.links/>
                 <!-- Bottom links -->
                 <x-sidebar.bottom-links />
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="text-white underline hover:text-zinc-900 w-full text-left">
+                        Déconnexion
+                    </button>
+                </form>
             </div>
         </div>
     </aside>
 
 </div>
+
