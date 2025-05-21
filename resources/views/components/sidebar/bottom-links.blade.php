@@ -6,7 +6,7 @@
     <li class="">
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <x-button>Logout</x-button>
+            <button type="submit">Logout</button>
         </form>
     </li>
 </ul>
