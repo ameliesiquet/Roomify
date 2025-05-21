@@ -18,7 +18,7 @@ class Login extends Component
     {
         logger()->info('Login-Methode aufgerufen', [
             'username' => $this->form->username,
-            'password_present' => !empty($this->form->password), // Passwort wird nicht im Klartext geloggt, nur ob vorhanden
+            'password_present' => !empty($this->form->password),
         ]);
 
         $this->form->validate();
@@ -32,13 +32,22 @@ class Login extends Component
                 'errors' => $e->errors(),
             ]);
 
-            // Fehler weiterreichen, damit Livewire die Fehlermeldungen anzeigt
             throw $e;
         }
 
-        Session::regenerate();
+        \Session::regenerate();
 
-        $this->redirect(route('dashboard'));
+        // ⛔ vorher:
+         $this->redirect(route('dashboard'));
+
+        // ✅ stattdessen:
+       // $this->dispatch('redirectToDashboard');
+
+
     }
 
+    public function render()
+    {
+        return view('livewire.pages.auth.login');
+    }
 }
