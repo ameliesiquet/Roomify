@@ -191,6 +191,7 @@ return [
 
     'attributes' => [
         'form.username' => 'username',
+        'form.email' => 'email',
         'form.password' => 'password',
     ],
 
