@@ -3,7 +3,9 @@
     <h1 class="uppercase text-center text-turquoise text-lg">Login</h1>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')"/>
+
     <form wire:submit.prevent="login" class="bg-[#E9E8E6] py-6 px-8 rounded-xl shadow-lg flex flex-col gap-4">
+        @csrf
         <x-form.field-label-input
             label="Email"
             name="form.email"
@@ -35,7 +37,7 @@
                 {{ __('Log in') }}
             </x-button>
             @if (Route::has('password.request'))
-                <a class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md"
+                <a class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                    href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>

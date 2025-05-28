@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('partials.head')
+@include('components.partials.head')
 
 <body class="font-sans  antialiased bg-mywhite">
 <div class="min-h-screen bg-sand">

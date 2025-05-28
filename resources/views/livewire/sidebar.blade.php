@@ -1,10 +1,8 @@
 <div class="flex flex-col text-sm">
-    {{-- Mobile--}}
     <aside x-data="{ mobileMenuOpen: false }"
            class="lg:hidden"
     >
         <h2 role="heading" aria-level="2" class="sr-only">Principal Navigation Menu</h2>
-        {{-- Navigation header --}}
         <div class="fixed top-0 left-0 w-full pl-5 pr-3.5 py-4 h-15 z-50 flex justify-between items-center bg-mywhite p-4 shadow-md ">
             <a href="{{ route('dashboard') }}"
                title="Back to Homepage"
@@ -29,7 +27,6 @@
             <div class="flex flex-col items-center gap-6">
                 <!-- Principal links -->
                 <x-sidebar.links menu-variable="mobileMenuOpen"/>
-
                 <!-- Bottom links -->
                 <x-sidebar.bottom-links />
             </div>
@@ -37,7 +34,7 @@
 
     </aside>
 
-    {{-- Desktop--}}
+    <!-- Desktop -->
     <aside
             class="hidden lg:flex lg:flex-col lg:fixed h-full transition-all duration-300 z-50"
             style="width: 14rem; overflow: visible;"
@@ -56,13 +53,7 @@
                 <!-- Principal links -->
                 <x-sidebar.links/>
                 <!-- Bottom links -->
-                <x-sidebar.bottom-links />
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="text-white underline hover:text-zinc-900 w-full text-left">
-                        Déconnexion
-                    </button>
-                </form>
+                <x-sidebar.bottom-links/>
             </div>
         </div>
     </aside>
