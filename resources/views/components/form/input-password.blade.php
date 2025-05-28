@@ -16,7 +16,7 @@
                 wire:model.defer="{{ $model }}"
             @endif
             placeholder="{{ $placeholder ?: '••••••••' }}"
-            class="m-0 text-0.2em pb-1.5 lg:pt-4 lg:pb-2 px-4 lg:text-xs block w-full"
+            class="m-0 text-0.2em pt-2.5 pb-1.5 lg:pt-4 lg:pb-2 px-4 lg:text-xs block w-full"
             {{ $attributes }}
         >
         <div class="  flex justify-center items-center space-x-1 cursor-pointer">

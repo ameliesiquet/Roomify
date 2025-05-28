@@ -8,28 +8,17 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Layout('layouts.guest')]
-#[Title('Inscription')]
+#[Title('Register')]
 class Register extends Component
 {
     public RegisterForm $form;
-
-    public bool $showGeneralCondition = false;
 
     public function register(): void
     {
         $this->validate();
 
         $this->form->register();
+        $this->redirect(route('dashboard'));
 
-        if (config('app.email_verification_enabled', true)) {
-            $this->redirectRoute('verification.notice');
-        } else {
-            $this->redirectRoute('onboarding.family');
-        }
-    }
-
-    public function showConditions(): void
-    {
-        $this->showGeneralCondition = true;
     }
 }

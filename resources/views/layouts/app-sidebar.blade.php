@@ -16,8 +16,6 @@
     <h1 class="text-xl text-turquoise mb-6 uppercase lg:text-2xl">
         {{ $title }}
     </h1>
-    <p>app-sidebar</p>
-    @livewire('counter')
     {{ $slot }}
 </main>
 @livewireScripts
