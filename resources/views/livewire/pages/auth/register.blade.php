@@ -3,12 +3,19 @@
     <form wire:submit="register"
           class="pb-2 mx-auto px-4  bg-light-sand lg:py-6 lg:px-8 rounded-xl shadow-lg flex flex-col gap-4 text-xs w-[80%]">
         @csrf
-        <div class="flex justify-center">
-            <x-svg.camera-register/>
-            <a href="">
-                <x-svg.edit-pencil/>
-            </a>
+        <div class="flex justify-center relative">
+            <label for="profile_photo" class="cursor-pointer relative">
+                <x-svg.camera-register class="w-20 h-20"/>
+                <input type="file" id="profile_photo" wire:model="form.profile_photo" class="hidden" accept="image/*">
+            </label>
+
+            @if ($form->profile_photo)
+                <img src="{{ $form->profile_photo->temporaryUrl() }}"
+                     class="absolute w-20 h-20 object-cover rounded-full border-2 border-white top-0 left-1/2 -translate-x-1/2 z-10"/>
+            @endif
+            <!-- img src=" asset('storage/' . $user->profile_photo_path) }}" alt="Profilbild"> so danach einfügen -->
         </div>
+
         <!-- Name -->
         <div class="flex justify-between gap-4">
             <!-- Firstname -->
