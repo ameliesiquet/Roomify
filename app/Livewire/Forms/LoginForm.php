@@ -29,6 +29,7 @@ class LoginForm extends Form
      */
     public function authenticate(): void
     {
+        $this->ensureIsNotRateLimited();
 
         $user = \App\Models\User::where('email', $this->email)->first();
 
@@ -48,8 +49,9 @@ class LoginForm extends Form
                 'form.password' => trans('auth.passwordfailed'),
             ]);
         }
-    }
+        RateLimiter::clear($this->throttleKey());
 
+    }
 
 
     /**
