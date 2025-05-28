@@ -11,8 +11,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/reset-password/{token}', \App\Livewire\Pages\Auth\ResetPassword::class)->name('password.reset');
 });
 
-
-
 Route::middleware('auth')->group(function () {
     Volt::route('verify-email', 'pages.auth.verify-email')
         ->name('verification.notice');
@@ -24,16 +22,16 @@ Route::middleware('auth')->group(function () {
     Volt::route('confirm-password', 'pages.auth.confirm-password')
         ->name('password.confirm');
 
+
+});
+
+Route::middleware('web')->group(function () {
     Route::post('/logout', function () {
-        \Log::info('Logout route hit', [
-            'token' => request()->input('_token'),
-            'session' => session()->all()
-        ]);
+        Log::info('Test to logout' . now());
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
         return redirect()->route('login');
     })->name('logout');
-
 
 });
