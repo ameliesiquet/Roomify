@@ -11,7 +11,7 @@
     </header>
 
     {{-- MAIN --}}
-    <main class="p-4 bg-mywhite">
+    <main class="px-4 mt-18 bg-mywhite min-h-[100vh] lg:mt-8">
         <p>Hallo (app.blade)</p>
         {{ $slot }}
     </main>
