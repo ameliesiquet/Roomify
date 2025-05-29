@@ -16,7 +16,8 @@ new class extends Component
      */
     public function mount(): void
     {
-        $this->name = Auth::user()->name;
+        $this->firstname = Auth::user()->firstname;
+        $this->lastname = Auth::user()->lastname;
         $this->email = Auth::user()->email;
     }
 
@@ -28,7 +29,8 @@ new class extends Component
         $user = Auth::user();
 
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'fisrtname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
         ]);
 
@@ -74,17 +76,44 @@ new class extends Component
     </header>
 
     <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        <!-- Name -->
+        <div class="flex justify-between gap-4">
+            <!-- Firstname -->
+            <x-form.field-label-input
+                label="Firstname"
+                name="form.firstname"
+                model="form.firstname"
+                placeholder="Your firstname"
+                autocomplete="firstname"
+                autofocus
+                required
+                class="capitalize"
+            />
+            <!-- Lastname -->
+            <x-form.field-label-input
+                label="Lastname"
+                name="form.lastname"
+                model="form.lastname"
+                placeholder="Your lastname"
+                autocomplete="lastname"
+                autofocus
+                required
+                class="capitalize"
+            />
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" name="email" type="email" class="mt-1 block w-full" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
-
+            <x-form.field-label-input
+                label="Email"
+                name="form.email"
+                type="email"
+                model="form.email"
+                placeholder="your-email@gmail.com"
+                autocomplete="email"
+                autofocus
+                required
+                class="lowercase"
+            />
             @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800">

@@ -8,7 +8,9 @@ class Rooms extends Component
 {
     public function render()
     {
-        return view('livewire.pages.rooms', [
-        ])->layout('layouts.app-sidebar');
+        return view('livewire.pages.rooms')
+            ->layout('layouts.app-sidebar', [
+                'title' =>  'Your Rooms',
+            ]);
     }
 }

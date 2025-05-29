@@ -9,7 +9,9 @@ class Profile extends Component
 {
     public function render()
     {
-        return view('livewire.pages.profile', [
-        ])->layout('layouts.app-sidebar');
+        return view('livewire.pages.profile')
+            ->layout('layouts.app-sidebar', [
+                'title' =>  'Your Profile',
+            ]);
     }
 }

@@ -9,9 +9,12 @@ class Dashboard extends Component
 
     public function render()
     {
-        return view('livewire.pages.dashboard')
-            ->layout('layouts.app-sidebar', ['title' => 'Dashboard']);
-    }
+        $user = Auth::user();
 
+        return view('livewire.pages.dashboard')
+            ->layout('layouts.app-sidebar', [
+                'title' => $user ? "Welcome, {$user->firstname}!" : 'Dashboard'
+            ]);
+    }
 
 }

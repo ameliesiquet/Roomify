@@ -10,7 +10,6 @@ use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 #[Layout('layouts.guest')]
-#[Title('Mot de passe oublié')]
 class ForgotPassword extends Component
 {
     #[Validate]
