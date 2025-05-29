@@ -1,3 +1,3 @@
 <div>
-    {{-- Be like water. --}}
+    <x-main-title>Your Rooms</x-main-title>
 </div>

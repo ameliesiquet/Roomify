@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
 
 class User extends Authenticatable
 {
@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'username',
         'email',
         'password',
+        'profile_photo_path',
     ];
 
     /**
@@ -45,4 +48,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function getAuthIdentifierName()
+    {
+        return 'username';
+    }
+
 }

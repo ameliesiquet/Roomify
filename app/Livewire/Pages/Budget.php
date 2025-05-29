@@ -8,7 +8,7 @@ class Budget extends Component
 {
     public function render()
     {
-        return view('livewire.pages.budget')
-            ->layout('layouts.app-sidebar', ['title' => 'Budget']);
+        return view('livewire.pages.budget', [
+        ])->layout('layouts.app-sidebar');
     }
 }

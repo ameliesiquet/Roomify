@@ -1,3 +1,3 @@
 <div>
-    {{-- Do your work, then step back. --}}
+    <x-main-title>Your Items</x-main-title>
 </div>

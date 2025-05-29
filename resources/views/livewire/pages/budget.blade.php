@@ -1,3 +1,3 @@
 <div>
-    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+    <x-main-title>Your Budget</x-main-title>
 </div>

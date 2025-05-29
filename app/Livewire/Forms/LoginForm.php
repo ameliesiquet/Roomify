@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Livewire\Forms;
 
 use Illuminate\Auth\Events\Lockout;
@@ -19,7 +20,7 @@ class LoginForm extends Form
     public string $password = '';
 
     #[Validate('boolean')]
-    public bool $remember = false;
+    public bool $remember = true;
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -30,16 +31,28 @@ class LoginForm extends Form
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only(['email', 'password']), $this->remember)) {
-            RateLimiter::hit($this->throttleKey());
+        $user = \App\Models\User::where('email', $this->email)->first();
 
+        if (!$user) {
             throw ValidationException::withMessages([
-                'form.email' => trans('auth.failed'),
+                'form.email' => 'No user found with this email.',
             ]);
         }
 
+        if (! Auth::attempt([
+            'email' => $this->email,
+            'password' => $this->password,
+        ], $this->remember)) {
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'form.password' => trans('auth.passwordfailed'),
+            ]);
+        }
         RateLimiter::clear($this->throttleKey());
+
     }
+
 
     /**
      * Ensure the authentication request is not rate limited.
