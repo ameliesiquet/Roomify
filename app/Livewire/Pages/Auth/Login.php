@@ -7,7 +7,6 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Auth;
-#[Layout('layouts.guest')]
 class Login extends Component
 {
     public LoginForm $form;
@@ -21,5 +20,13 @@ class Login extends Component
         Session::regenerate();
 
         $this->redirect(route('dashboard'));
+    }
+    public function render()
+    {
+        return view('livewire.pages.auth.login')
+            ->layout('layouts.guest', [
+                'title' => 'Login',
+                'header' => 'Login to your account',
+            ]);
     }
 }

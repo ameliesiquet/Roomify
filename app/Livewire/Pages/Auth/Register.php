@@ -8,7 +8,6 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-#[Layout('layouts.guest')]
 #[Title('Register')]
 class Register extends Component
 {
@@ -21,6 +20,15 @@ class Register extends Component
 
         $this->form->register();
         $this->redirect(route('dashboard'));
-
     }
+
+    public function render()
+    {
+        return view('livewire.pages.auth.register')
+            ->layout('layouts.guest', [
+                'title' => 'Register',
+                'header' => 'Create an account',
+            ]);
+    }
+
 }

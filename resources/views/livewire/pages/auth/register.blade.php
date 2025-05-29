@@ -1,85 +1,85 @@
-<div class="m-auto flex flex-col gap-4">
-    <h1 class="uppercase text-center text-turquoise">Register</h1>
-    <form wire:submit="register"
-          class="pb-2 mx-auto px-4  bg-light-sand lg:py-6 lg:px-8 rounded-xl shadow-lg flex flex-col gap-4 text-xs w-[80%]">
-        @csrf
-        <div class="flex justify-center relative">
-            <label for="profile_photo" class="cursor-pointer relative">
-                <x-svg.camera-register class="w-20 h-20"/>
-                <input type="file" id="profile_photo" wire:model="form.profile_photo" class="hidden" accept="image/*">
-            </label>
 
-            @if ($form->profile_photo)
-                <img src="{{ $form->profile_photo->temporaryUrl() }}"
-                     class="absolute w-20 h-20 object-cover rounded-full border-2 border-white top-0 left-1/2 -translate-x-1/2 z-10"/>
-            @endif
-            <!-- img src=" asset('storage/' . $user->profile_photo_path) }}" alt="Profilbild"> so danach einfügen -->
-        </div>
+        <form wire:submit="register"
+              class="pb-2 px-4  bg-mybeige py-6 lg:px-8 rounded-xl shadow-lg flex flex-col gap-4 text-xs">
+            @csrf
+            <div class="flex justify-center relative">
+                <label for="profile_photo" class="cursor-pointer relative">
+                    <x-svg.camera-register class="w-20 h-20"/>
+                    <input type="file" id="profile_photo" wire:model="form.profile_photo" class="hidden"
+                           accept="image/*">
+                </label>
+                @if ($form->profile_photo)
+                    <img src="{{ $form->profile_photo->temporaryUrl() }}"
+                         class="absolute w-20 h-20 object-cover rounded-full border-2 border-white top-0 left-1/2 -translate-x-1/2 z-10"/>
+                @endif
+            </div>
 
-        <!-- Name -->
-        <div class="flex justify-between gap-4">
-            <!-- Firstname -->
+            <!-- Name -->
+            <div class="flex justify-between gap-4">
+                <!-- Firstname -->
+                <x-form.field-label-input
+                        label="Firstname"
+                        name="form.firstname"
+                        model="form.firstname"
+                        placeholder="Your firstname"
+                        autocomplete="firstname"
+                        autofocus
+                        required
+                        class="capitalize"
+                />
+                <!-- Lastname -->
+                <x-form.field-label-input
+                        label="Lastname"
+                        name="form.lastname"
+                        model="form.lastname"
+                        placeholder="Your lastname"
+                        autocomplete="lastname"
+                        autofocus
+                        required
+                        class="capitalize"
+                />
+            </div>
+            <!-- Email -->
             <x-form.field-label-input
-                    label="Firstname"
-                    name="form.firstname"
-                    model="form.firstname"
-                    placeholder="Your firstname"
-                    autocomplete="firstname"
+                    label="Email"
+                    name="form.email"
+                    type="email"
+                    model="form.email"
+                    placeholder="your-email@gmail.com"
+                    autocomplete="email"
                     autofocus
                     required
-                    class="capitalize"
+                    class="lowercase"
             />
-            <!-- Lastname -->
+            <!-- Username -->
             <x-form.field-label-input
-                    label="Lastname"
-                    name="form.lastname"
-                    model="form.lastname"
-                    placeholder="Your lastname"
-                    autocomplete="lastname"
-                    autofocus
+                    label="Username"
+                    name="form.username"
+                    model="form.username"
+                    placeholder="your_username"
+                    autocomplete="username"
                     required
-                    class="capitalize"
+                    class="lowercase"
             />
-        </div>
-        <!-- Email -->
-        <x-form.field-label-input
-                label="Email"
-                name="form.email"
-                type="email"
-                model="form.email"
-                placeholder="your-email@gmail.com"
-                autocomplete="email"
-                autofocus
-                required
-                class="lowercase"
-        />
-        <!-- Username -->
-        <x-form.field-label-input
-                label="Username"
-                name="form.username"
-                model="form.username"
-                placeholder="your_username"
-                autocomplete="username"
-                required
-                class="lowercase"
-        />
-        <!-- Password -->
-        <x-form.input-password
-                label="Password"
-                name="form.password"
-                :model="'form.password'"
-                autocomplete="current-password"
-                required
-        />
-        <div class="flex flex-col gap-4 items-center justify-end mt-4">
-            <x-button>Create my account</x-button>
-            @if (Route::has('login'))
-                <a class="underline text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                   href="{{ route('login') }}" wire:navigate>
-                    {{ __('I already have an account') }}
-                </a>
-            @endif
-        </div>
-    </form>
-</div>
-<!-- TODO : make camera icon functionnal -->
+            <!-- Password -->
+            <x-form.input-password
+                    label="Password"
+                    name="form.password"
+                    :model="'form.password'"
+                    autocomplete="current-password"
+                    required
+            />
+            <div class="flex flex-col gap-4 items-center justify-end mt-4">
+                <x-button>Create my account</x-button>
+                @if (Route::has('login'))
+                    <a class="underline text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                       href="{{ route('login') }}" wire:navigate>
+                        {{ __('I already have an account') }}
+                    </a>
+                @endif
+            </div>
+        </form>
+    </section>
+
+    <!-- TODO : make camera icon functionnal -->
+

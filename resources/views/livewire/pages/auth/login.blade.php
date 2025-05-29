@@ -1,10 +1,5 @@
-<div class="m-auto flex flex-col gap-4">
-
-    <h1 class="uppercase text-center text-turquoise text-lg">Login</h1>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')"/>
-
-    <form wire:submit.prevent="login" class="bg-[#E9E8E6] py-6 px-8 rounded-xl shadow-lg flex flex-col gap-4">
+ <form wire:submit.prevent="login"
+       class="pb-2 px-4  bg-mybeige py-6 lg:px-8 rounded-xl shadow-lg flex flex-col gap-4 text-xs">
         @csrf
         <x-form.field-label-input
             label="Email"
@@ -41,4 +36,3 @@
                 </a>
         </div>
     </form>
-</div>
