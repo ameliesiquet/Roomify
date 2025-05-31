@@ -1,3 +1,3 @@
-<h1 class="font-medium text-2xl uppercase text-turquoise mt-10 ">
+<h1 class="font-medium text-2xl uppercase text-turquoise">
    {{$slot}}
 </h1>

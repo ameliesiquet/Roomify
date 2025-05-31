@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'amsel',
             'email' => 'am@ex.com',
             'profile_photo_path' => 'profile-photos/profile.jpg',
-            'password' => bcrypt('password')
+            'password' => bcrypt('#1Password')
         ]);
     }
 }

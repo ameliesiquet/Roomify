@@ -2,12 +2,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -48,9 +50,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function getAuthIdentifierName()
+    public function getAuthIdentifierName(): string
     {
         return 'username';
+    }
+
+    public function sendEmailVerificationNotification(): void
+    {
+        if ($this->email_verified_at === null) {
+            $this->notify(new VerifyEmail);
+        }
     }
 
 }
