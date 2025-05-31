@@ -22,6 +22,7 @@ new class extends Component {
      */
     public function mount(): void
     {
+        $user = Auth::user()->fresh();
         $this->firstname = Auth::user()->firstname;
         $this->lastname = Auth::user()->lastname;
         $this->username = Auth::user()->username;
@@ -97,7 +98,6 @@ new class extends Component {
         $this->dispatch('password-updated');
     }
 }; ?>
-
 <section class="p-8 bg-light-white shadow rounded-xl max-w-xl">
     <form wire:submit="updateProfileInformation" class=" space-y-6">
         <div class="flex gap-4 lg:gap-8 items-center">
@@ -116,7 +116,6 @@ new class extends Component {
             :editable="true"
             :editing="$editing"
         />
-
         <!-- Lastname -->
         <x-form.display-field
             label="Lastname"
@@ -149,7 +148,7 @@ new class extends Component {
                 <p> {{ __('Your email address is unverified.') }}</p>
                 <button
                     wire:click.prevent="sendVerification"
-                    class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-turquoise">
+                    class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md cursor-pointer focus:font-bold">
                     {{ __('Click here to re-send the verification email.') }}
                 </button>
                 @if (session('status') === 'verification-link-sent')
@@ -160,12 +159,7 @@ new class extends Component {
             </div>
         @endif
 
-
         <!-- Passwort -->
         <x-form.display-password-field :editing="$editing" />
-
-
-
-
     </form>
 </section>

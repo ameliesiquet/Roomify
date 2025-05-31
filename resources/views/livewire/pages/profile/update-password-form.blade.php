@@ -38,8 +38,6 @@ new class extends Component {
         $this->dispatch('password-updated');
     }
 }; ?>
-
-    <!-- Passwort-Anzeige oder Formular -->
 <div>
     @if (! $edit_password)
         <x-form.display-field
@@ -61,7 +59,6 @@ new class extends Component {
                 model="current_password"
                 autocomplete="current-password"
             />
-
             <x-form.field-label-input
                 label="New Password"
                 name="password"
@@ -69,7 +66,6 @@ new class extends Component {
                 model="password"
                 autocomplete="new-password"
             />
-
             <x-form.field-label-input
                 label="Confirm Password"
                 name="password_confirmation"
@@ -77,16 +73,13 @@ new class extends Component {
                 model="password_confirmation"
                 autocomplete="new-password"
             />
-
             <div class="flex items-center gap-3">
                 <x-button wire:click="updatePassword">
                     {{ __('Save') }}
                 </x-button>
-
                 <button wire:click="$set('edit_password', false)" class="text-sm text-gray-600 hover:underline">
                     {{ __('Cancel') }}
                 </button>
-
                 <x-action-message on="password-updated" class="text-green-600">
                     {{ __('Saved.') }}
                 </x-action-message>

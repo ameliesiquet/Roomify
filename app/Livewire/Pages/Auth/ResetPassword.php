@@ -15,7 +15,7 @@ use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 #[Layout('layouts.guest')]
-#[Title('Réinitialiser le mot de passe')]
+#[Title('Reset password')]
 class ResetPassword extends Component
 {
     #[Locked]

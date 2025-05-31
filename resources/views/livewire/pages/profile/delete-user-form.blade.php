@@ -59,8 +59,6 @@ new class extends Component
                 />
 
             </div>
-
-
             <div class="mt-6 flex justify-end">
                 <x-button x-on:click="$dispatch('close')">
                     {{ __('Cancel') }}
