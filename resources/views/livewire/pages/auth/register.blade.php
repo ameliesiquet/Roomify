@@ -7,7 +7,7 @@
                 <div class="relative w-20 h-20 mx-auto rounded-full ">
                     @if ($form->profile_photo)
                         <img src="{{ $form->profile_photo->temporaryUrl() }}"
-                             class="w-full h-full object-cover"/>
+                             class="w-full h-full object-cover rounded-full "/>
                     @else
                         <x-svg.camera-register class="w-full h-full text-gray-400"/>
                     @endif
