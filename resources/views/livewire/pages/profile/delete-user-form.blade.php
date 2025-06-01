@@ -4,8 +4,7 @@ use App\Livewire\Actions\Logout;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Volt\Component;
 
-new class extends Component
-{
+new class extends Component {
     public string $password = '';
 
     /**
@@ -24,30 +23,38 @@ new class extends Component
 }; ?>
 
 <section class="py-4 px-8 bg-white shadow rounded-xl max-w-xl flex flex-col gap-2 items-baseline">
-    <header class="flex flex-col gap-2">
-        <h2 class="text-s text-gray-600">
-            {{ __('Delete your account') }}
-        </h2>
-        <p class="text-xs text-gray-800 font-medium leading-6">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
-        </p>
-    </header>
-    <x-button
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-button>
+    <h2 class="text-s text-gray-600">
+        {{ __('Delete your account') }}
+    </h2>
+    <p class="text-xs text-gray-800 font-medium leading-6">
+        Thinking about leaving already? 😢
+        Looks like your dream apartment is all set up and you don’t need us anymore!
+        If you ever feel like rearranging or starting fresh, we’ll be right here. 💫
+    </p>
 
-    <x-modal name="confirm-user-deletion" :show="$errors->isNotEmpty()" focusable>
-        <form wire:submit="deleteUser" class="p-6">
-
+    <!-- Button to open modal -->
+    <x-button x-data @click="$dispatch('open-modal')">
+        Delete Account
+    </x-button>
+    <!-- Modal Container -->
+    <div
+        x-data="{ open: false }"
+        x-on:open-modal.window="open = true"
+        x-on:close-modal.window="open = false"
+        x-show="open"
+        focusable
+        style="display: none;"
+        class="fixed inset-0 flex items-center justify-center bg-black/30 z-50"
+    >
+        <form wire:submit="deleteUser" class="p-6 z-50 b bg-mywhite rounded-2xl">
             <h2 class="text-lg font-medium text-gray-900">
-                {{ __('Are you sure you want to delete your account?') }}
+                {{ __('Ready to say goodbye? 💔') }}
             </h2>
-
             <p class="mt-1 text-sm text-gray-600">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                {{ __('If you delete your account, all your rooms, items, and data will be gone forever. 🗂️
+                        Please enter your password to confirm — and remember, you‘re always welcome back. 🏡')
+                        }}
             </p>
-
             <div class="mt-6 space-y-3">
                 <x-form.field-label-input
                     label="{{ __('Password') }}"
@@ -57,17 +64,17 @@ new class extends Component
                     placeholder="{{ __('Password') }}"
                     autocomplete="current-password"
                 />
-
             </div>
             <div class="mt-6 flex justify-end">
-                <x-button x-on:click="$dispatch('close')">
+                <x-button type="button" x-on:click="$dispatch('close-modal')">
                     {{ __('Cancel') }}
                 </x-button>
-
                 <x-button class="ms-3">
                     {{ __('Delete Account') }}
                 </x-button>
             </div>
         </form>
-    </x-modal>
+    </div>
 </section>
+
+

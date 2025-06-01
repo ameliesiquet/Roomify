@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Livewire\Pages;
+namespace App\Livewire\Pages\Profile;
 
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Profile extends Component

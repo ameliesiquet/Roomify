@@ -3,7 +3,7 @@
 use App\Livewire\Pages\Budget;
 use App\Livewire\Pages\Dashboard;
 use App\Livewire\Pages\Items;
-use App\Livewire\Pages\Profile;
+use App\Livewire\Pages\Profile\Profile;
 use App\Livewire\Pages\Rooms;
 use App\Livewire\Pages\Shopping;
 use Illuminate\Support\Facades\Route;
