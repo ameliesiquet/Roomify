@@ -2,18 +2,22 @@
         <form wire:submit="register"
               class="pb-2 px-4  bg-mybeige py-6 lg:px-8 rounded-xl shadow-lg flex flex-col gap-4 text-xs">
             @csrf
-            <div class="flex justify-center relative">
-                <label for="profile_photo" class="cursor-pointer relative">
-                    <x-svg.camera-register class="w-20 h-20"/>
-                    <input type="file" id="profile_photo" wire:model="form.profile_photo" class="hidden"
-                           accept="image/*">
-                </label>
-                @if ($form->profile_photo)
-                    <img src="{{ $form->profile_photo->temporaryUrl() }}"
-                         class="absolute w-20 h-20 object-cover rounded-full border-2 border-white top-0 left-1/2 -translate-x-1/2 z-10"/>
-                @endif
+            <!-- Profile photo -->
+            <div class="flex items-center gap-3">
+                <div class="relative w-20 h-20 mx-auto rounded-full ">
+                    @if ($form->profile_photo)
+                        <img src="{{ $form->profile_photo->temporaryUrl() }}"
+                             class="w-full h-full object-cover"/>
+                    @else
+                        <x-svg.camera-register class="w-full h-full text-gray-400"/>
+                    @endif
+                    <label for="profile_photo"
+                           class="absolute top-0 right-0 -translate-x-1/4 -translate-y-1/4 cursor-pointer bg-mywhite rounded-full p-1 shadow-md hover:bg-gray-100 z-50">
+                        <x-svg.edit-pencil class="w-6 h-6 text-turquoise"/>
+                    </label>
+                </div>
+                <input type="file" id="profile_photo" wire:model="form.profile_photo" class="hidden" accept="image/*">
             </div>
-
             <!-- Name -->
             <div class="flex justify-between gap-4">
                 <!-- Firstname -->
