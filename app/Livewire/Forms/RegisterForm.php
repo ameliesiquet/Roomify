@@ -18,8 +18,6 @@ use Livewire\WithFileUploads;
 
 class RegisterForm extends Form
 {
-
-
     #[Validate('required|string|max:255')]
     public string $firstname = '';
 
