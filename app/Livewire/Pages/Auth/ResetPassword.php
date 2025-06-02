@@ -18,12 +18,16 @@ use Livewire\Component;
 #[Title('Reset password')]
 class ResetPassword extends Component
 {
+    public ?string $message = null;
+    public bool $resetSuccessful = false;
+
     #[Locked]
     public string $token = '';
 
-    #[Validate]
+    #[Validate('required|string|lowercase|email|max:255')]
     public string $email = '';
 
+    #[Validate]
     public string $password = '';
 
     #[Validate]
@@ -40,8 +44,7 @@ class ResetPassword extends Component
     {
         return [
             'token' => ['required'],
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'string', \Illuminate\Validation\Rules\Password::min(8)->letters()->mixedCase()->numbers()->symbols()],
             'password_confirmation' => ['required', 'string', 'min:8', 'max:255', 'same:password'],
         ];
     }
@@ -62,14 +65,15 @@ class ResetPassword extends Component
             }
         );
 
-        if ($status != Password::PasswordReset) {
-            $this->addError('email', __($status));
-
+        if ($status === Password::PASSWORD_RESET) {
+            $this->message = __('✅Your password was successfully reset!');
+            $this->resetSuccessful = true;
+            $this->reset('password', 'password_confirmation');
             return;
         }
 
-        Session::flash('status', __($status));
-
-        $this->redirectRoute('login', navigate: true);
+        $this->addError('email', __($status));
     }
+
+
 }

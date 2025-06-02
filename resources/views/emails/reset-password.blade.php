@@ -23,12 +23,13 @@
 </head>
 <body>
 <h2>Hey there! 👋🏻</h2>
-<p>Thanks for joining <strong>Roomify</strong> ✨</p>
-<p>To start, please confirm your email by clicking the button below. 👇</p>
-@component('mail::button', ['url' => $url])
-    Verify my email
-@endcomponent
-<p>If you didn’t sign up, just ignore this message. 🙈</p>
-<p>Cheers, your Roomify Team 🤎</p>
+<p>Forgot your password? No worries — we got you! 🔒</p>
+<p>Click the button below to reset your password and get back to Roomify. 👇</p>
+
+<a href="{{ $url }}" class="button">Reset Password</a>
+
+
+<p>If you didn’t request a password reset, you can safely ignore this message. 🙈</p>
+<p>Take care, your Roomify Team 🤎</p>
 </body>
 </html>

@@ -2,8 +2,9 @@
     <div class="relative w-5 h-5">
         <input
             type="checkbox"
-            class="appearance-none w-5 h-5 border-2 border-[#446063] bg-gray-200 rounded-sm checked:bg-[#446063] peer" />
-
+            class="appearance-none w-5 h-5 border-2 border-[#446063] bg-gray-200 rounded-sm checked:bg-[#446063] peer"
+            wire:model="form.remember"
+        />
         <svg
             class="hidden peer-checked:block w-3 h-3 text-white absolute top-1 left-1"
             fill="none"
