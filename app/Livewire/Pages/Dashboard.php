@@ -31,10 +31,16 @@ class Dashboard extends Component
     {
 
         $user = auth()->user();
-        $user = $user instanceof \App\Models\User ? $user : User::findOrFail($user);
+
+        if ($user instanceof \App\Models\User) {
+            $dashboardMessages = $this->getDashboardMessages($user);
+        } else {
+            $dashboardMessages = [];
+        }
+
 
         return view('livewire.pages.dashboard', [
-            'dashboardMessages' => $this->getDashboardMessages($user),
+            'dashboardMessages' => $dashboardMessages,
         ])->layout('layouts.app-sidebar', [
             'title' => $user ? "Welcome, {$user->firstname}!" : 'Dashboard',
         ]);
