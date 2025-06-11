@@ -1,5 +1,5 @@
 <div>
-    <livewire:components.ui.messages :messages="$dashboardMessages" />
+    @livewire('components.ui.messages', ['messages' => $dashboardMessages])
 
 
 </div>
