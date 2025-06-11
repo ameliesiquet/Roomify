@@ -1,26 +1,18 @@
-<!DOCTYPE html>
+@props(['title' => ''])
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('partials.head')
-<body class="font-sans bg-mywhite" >
-<header>
-    <h1 role="heading" aria-level="1" class="sr-only">{{ $title ?? 'Default title' }}</h1>
-    {{ $banner ?? null }}
-    <livewire:sidebar/>
-</header>
+@include('components.partials.head')
 
-
-
-<main
-        x-data
-        class="flex-1 max-lg:!ml-0 transition-all duration-300 bg-mywhite"
-        @sidebar-toggled.window="$el.style.marginLeft = $event.detail.expanded ? '16rem' : '5rem'"
-        style="margin-left: {{ session('sidebar_expanded', true) ? '16rem' : '5rem' }};"
+<body class="font-sans bg-mywhite">
+    @include('components.partials.header')
+    <main x-data
+      class="px-10 mt-22 flex-1 max-lg:!ml-0 transition-all duration-300 bg-mywhite min-h-[100vh] lg:mt-12 flex flex-col gap-10"
+      @sidebar-toggled.window="$el.style.marginLeft = $event.detail.expanded ? '16rem' : '5rem'"
+      style="margin-left: {{ session('sidebar_expanded', true) ? '16rem' : '5rem' }};"
 >
-    <div class="p-4">
-        {{ $slot }}
-    </div>
-</main>
-
+    <x-main-title>{{$title}}</x-main-title>
+    {{ $slot }}
+    </main>
 @livewireScripts
 </body>
 </html>

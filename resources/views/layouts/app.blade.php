@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('partials.head')
+@include('components.partials.head')
 
 <body class="font-sans  antialiased bg-mywhite">
 <div class="min-h-screen bg-sand">
-    <livewire:layout.navigation/>
-    <!-- Page Heading -->
-    @if (isset($header))
-        <header class="bg-white dark:bg-gray-800 shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-    @endif
+    <header>
+        <h1 role="heading" aria-level="1" class="sr-only">{{ $title ?? 'Default title' }}</h1>
+        {{ $banner ?? null }}
+        <livewire:sidebar/>
+    </header>
 
     {{-- MAIN --}}
-    <main class="p-4 bg-mywhite">
+    <main class="px-4 mt-18 bg-mywhite min-h-[100vh] lg:mt-8">
         <p>Hallo (app.blade)</p>
         {{ $slot }}
     </main>

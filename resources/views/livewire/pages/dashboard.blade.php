@@ -1,3 +1,5 @@
 <div>
-    <h1>Dashboard</h1>
+    <livewire:components.ui.messages :messages="$dashboardMessages" />
+
+
 </div>

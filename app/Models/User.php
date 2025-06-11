@@ -1,13 +1,17 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Mail\CustomVerifyEmail;
+use Illuminate\Auth\Notifications\VerifyEmail;
+use App\Notifications\CustomResetPassword;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -18,9 +22,12 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'username',
         'email',
         'password',
+        'profile_photo_path',
     ];
 
     /**
@@ -45,4 +52,32 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function getAuthIdentifierName(): string
+    {
+        return 'username';
+    }
+
+    public function sendEmailVerificationNotification(): void
+    {
+        if ($this->email_verified_at === null) {
+            $this->notify(new CustomVerifyEmail());
+        }
+    }
+    public function sendPasswordResetNotification($token): void
+    {
+        $url = url(route('password.reset', ['token' => $token, 'email' => $this->email], false));
+
+        $this->notify(new CustomResetPassword($token));
+    }
+
+   /* public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }*/
+
 }
