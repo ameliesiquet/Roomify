@@ -1,5 +1,4 @@
 <div>
-    @livewire('components.ui.messages', ['messages' => $dashboardMessages])
-
-
+    {{--TODO: fix messages error--}}
+    {{--@livewire('components.ui.messages', ['messages' => $dashboardMessages])--}}
 </div>

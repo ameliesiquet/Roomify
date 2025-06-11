@@ -13,7 +13,6 @@ class Messages extends Component
 
     public function mount($messages = null): void
     {
-        logger()->info('Messages in mount:', ['messages' => $messages]);
         $this->messages = is_array($messages) ? $messages : [];
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 class Dashboard extends Component
 {
-    public array $messages = [];
+    public $message = [];
     private function getDashboardMessages($user): array
     {
         $messages = [];
