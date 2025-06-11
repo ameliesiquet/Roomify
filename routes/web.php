@@ -6,9 +6,15 @@ use App\Livewire\Pages\Items;
 use App\Livewire\Pages\Profile\Profile;
 use App\Livewire\Pages\Rooms;
 use App\Livewire\Pages\Shopping;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
+    return view('welcome');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

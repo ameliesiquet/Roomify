@@ -3,6 +3,7 @@
     <section class="flex flex-col items-center justify-center">
         <h2 class="text-sm">A short explanation of this application:</h2>
     </section>
+    @guest
     <div class="flex gap-3">
         <a class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md"
            href="{{ route('login') }}">
@@ -18,4 +19,13 @@
             </x-button>
         </a>
     </div>
+    @endguest
+    @auth
+        <a class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md"
+           href="{{ route('dashboard') }}">
+            <x-button class="ms-3">
+                {{ __('Dashboard') }}
+            </x-button>
+        </a>
+    @endauth
 </x-guest-layout>
