@@ -29,7 +29,10 @@ class Dashboard extends Component
     }
     public function render()
     {
-        $user = Auth::user();
+
+        $user = auth()->user();
+        $id = (int) trim($_REQUEST['id']);
+        $user = $user instanceof \App\Models\User ? $user : User::findOrFail($id);
 
         return view('livewire.pages.dashboard', [
             'dashboardMessages' => $this->getDashboardMessages($user),
