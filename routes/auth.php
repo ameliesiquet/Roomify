@@ -1,14 +1,19 @@
 <?php
 
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Livewire\Pages\Auth\ForgotPassword;
+use App\Livewire\Pages\Auth\Login;
+use App\Livewire\Pages\Auth\Register;
+use App\Livewire\Pages\Auth\ResetPassword;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
+
 Route::middleware('guest')->group(function () {
-    Route::get('/register', \App\Livewire\Pages\Auth\Register::class)->name('register');
-    Route::get('/login', \App\Livewire\Pages\Auth\Login::class)->name('login');
-    Route::get('/forgot-password', \App\Livewire\Pages\Auth\ForgotPassword::class)->name('password.request');
-    Route::get('/reset-password/{token}', \App\Livewire\Pages\Auth\ResetPassword::class)->name('password.reset');
+    Route::get('/register', Register::class)->name('register');
+    Route::get('/login', Login::class)->name('login');
+    Route::get('/forgot-password', ForgotPassword::class)->name('password.request');
+    Route::get('/reset-password/{token}', ResetPassword::class)->name('password.reset');
 });
 
 Route::middleware('auth')->group(function () {
