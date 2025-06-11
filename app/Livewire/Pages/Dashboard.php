@@ -31,8 +31,7 @@ class Dashboard extends Component
     {
 
         $user = auth()->user();
-        $id = (int) trim($_REQUEST['id']);
-        $user = $user instanceof \App\Models\User ? $user : User::findOrFail($id);
+        $user = $user instanceof \App\Models\User ? $user : User::findOrFail($user);
 
         return view('livewire.pages.dashboard', [
             'dashboardMessages' => $this->getDashboardMessages($user),
