@@ -11,10 +11,12 @@ class Messages extends Component
 {
     public array $messages = [];
 
-    public function mount(array $messages = []): void
+    public function mount($messages = null): void
     {
-        $this->messages = $messages;
+        logger()->info('Messages in mount:', ['messages' => $messages]);
+        $this->messages = is_array($messages) ? $messages : [];
     }
+
 
     public function render()
     {
