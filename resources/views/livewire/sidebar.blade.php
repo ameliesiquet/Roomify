@@ -15,14 +15,14 @@
             </button>
         </div>
         <div
-                x-show="mobileMenuOpen"
-                x-transition:enter="transition ease-in-out duration-200"
-                x-transition:enter-start="opacity-0 translate-x-full"
-                x-transition:enter-end="opacity-100 translate-x-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100 translate-x-0"
-                x-transition:leave-end="opacity-0 translate-x-full"
-                class="fixed top-15 right-0 h-screen w-screen bg-sand z-40 overflow-y-auto flex flex-col items-center gap-8 pt-8"
+            x-show="mobileMenuOpen"
+            x-transition:enter="transition ease-in-out duration-200"
+            x-transition:enter-start="opacity-0 translate-x-full"
+            x-transition:enter-end="opacity-100 translate-x-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-x-0"
+            x-transition:leave-end="opacity-0 translate-x-full"
+            class="fixed top-15 right-0 h-screen w-screen bg-sand z-40 overflow-y-auto flex flex-col items-center gap-8 pt-8 z-100"
         >
             <div class="flex flex-col items-center gap-6">
                 <!-- Principal links -->
@@ -36,16 +36,17 @@
 
     <!-- Desktop -->
     <aside
-            class="hidden lg:flex lg:flex-col lg:fixed h-full transition-all duration-300 z-50"
-            style="width: 14rem; overflow: visible;"
+        class="hidden lg:flex lg:flex-col lg:fixed h-full transition-all duration-300 z-50"
+        style="width: 14rem; overflow: visible;"
     >
         <div class="h-full pt-6 pb-4 flex flex-col justify-between gap-4 overflow-visible rounded-tr-[16px] rounded-br-[16px] ">
-        <!-- Navigation header -->
+            <!-- Navigation header -->
             <div class="relative flex items-center pl-2.5 h-[5vh] self-center">
                 <a href="{{ route('dashboard') }}"
                    title="Back to Homepage"
                    class="flex items-center"
-                   wire:navigate>
+                   wire:navigate
+                >
                     <x-app-logo class="w-50 h-50 " />
                 </a>
             </div>
@@ -59,4 +60,3 @@
     </aside>
 
 </div>
-
