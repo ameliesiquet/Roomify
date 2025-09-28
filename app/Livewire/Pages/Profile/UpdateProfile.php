@@ -19,8 +19,7 @@ class UpdateProfile extends Component
     public string $username = '';
     public string $email = '';
     public string $profile_photo_path = '';
-    public $profile_photo;
-
+    public $profile_photo = null;
     public string $editing = '';
 
     public string $current_password = '';
@@ -39,20 +38,19 @@ class UpdateProfile extends Component
     public function mount(): void
     {
         $user = Auth::user()->fresh();
-        $this->firstname = $user->firstname;
-        $this->lastname = $user->lastname;
-        $this->username = $user->username;
-        $this->email = $user->email;
+
+        $this->firstname = $user->firstname ?? '';
+        $this->lastname  = $user->lastname ?? '';
+        $this->username  = $user->username ?? '';
+        $this->email     = $user->email ?? '';
         $this->profile_photo_path = $user->profile_photo_path ?? '';
+        $this->profile_photo = null;
+        $this->editing = '';
     }
 
     public function updatedProfilePhoto()
     {
-        try {
-            $this->validateOnly('profile_photo');
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            return;
-        }
+        $this->validateOnly('profile_photo');
         $this->resetErrorBag('profile_photo');
     }
 
@@ -63,8 +61,14 @@ class UpdateProfile extends Component
         $validated = $this->validate([
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
+            'profile_photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ]);
+
+        if ($this->profile_photo) {
+            $path = $this->profile_photo->store('profile-photos', 'public');
+            $user->profile_photo_path = $path;
+        }
 
         $user->fill($validated);
 
@@ -74,8 +78,12 @@ class UpdateProfile extends Component
 
         $user->save();
 
+        $this->profile_photo = null;
+        $this->profile_photo_path = $user->profile_photo_path;
+
         $this->dispatch('profile-updated', name: $user->name);
     }
+
 
     public function updatePassword()
     {
@@ -99,6 +107,14 @@ class UpdateProfile extends Component
         if ($this->editing === 'profile_photo') {
             $this->reset('profile_photo');
         }
+
+        $user = Auth::user()->fresh();
+
+        $this->firstname = $user->firstname ?? '';
+        $this->lastname = $user->lastname ?? '';
+        $this->username = $user->username ?? '';
+        $this->email = $user->email ?? '';
+        $this->profile_photo_path = $user->profile_photo_path ?? '';
 
         $this->editing = '';
     }
@@ -124,6 +140,6 @@ class UpdateProfile extends Component
 
     public function render()
     {
-        return view('livewire.pages.profile.update-profile-information-form');
+        return view('livewire.pages.profile.update-profile');
     }
 }

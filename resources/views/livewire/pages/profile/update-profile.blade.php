@@ -1,107 +1,6 @@
-<?php
 
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\Rule;
-use Livewire\Volt\Component;
-use Livewire\WithFileUploads;
-
-new class extends Component {
-    use WithFileUploads;
-
-    public string $firstname = '';
-    public string $lastname = '';
-    public string $username = '';
-    public string $email = '';
-    public string $profile_photo_path = '';
-    public string $editing = '';
-    public $profile_photo;
-    public string $current_password = '';
-    public string $password = '';
-    public string $password_confirmation = '';
-
-    /**
-     * Mount the component.
-     */
-    public function mount(): void
-    {
-        $user = Auth::user()->fresh();
-        $this->firstname = Auth::user()->firstname;
-        $this->lastname = Auth::user()->lastname;
-        $this->username = Auth::user()->username;
-        $this->email = Auth::user()->email;
-        $this->profile_photo_path = $user->profile_photo_path ?? '';
-    }
-
-    /**
-     * Update the profile information for the currently authenticated user.
-     */
-    public function updateProfileInformation(): void
-    {
-        $user = Auth::user();
-        $validated = $this->validate([
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($user->id)],
-        ]);
-        $user->fill($validated);
-        if ($user->isDirty('email')) {
-            $user->email_verified_at = null;
-        }
-        $user->save();
-        $this->dispatch('profile-updated', name: $user->name);
-    }
-
-    public function save()
-    {
-        $this->editing = '';
-        $this->dispatch('updated');
-    }
-    public function cancelEdit()
-    {
-        if ($this->editing === 'profile_photo') {
-            $this->reset('profile_photo');
-        }
-
-        $this->editing = '';
-    }
-
-
-    /**
-     * Send an email verification notification to the current user.
-     */
-    public function sendVerification(): void{
-        $user = Auth::user();
-        if ($user->hasVerifiedEmail()) {
-            $this->redirectIntended(default: route('dashboard', absolute: false));
-            return;
-        }
-        $user->sendEmailVerificationNotification();
-        Session::flash('status', 'verification-link-sent');
-    }
-
-    /**
-     * Update the password for the currently authenticated user.
-     */
-    public function updatePassword()
-    {
-        $validated = $this->validate([
-            'current_password' => ['required', 'current_password'],
-            'password' => ['required', 'min:8', 'confirmed'],
-        ]);
-        auth()->user()->update([
-            'password' => Hash::make($validated['password']),
-        ]);
-        $this->reset(['current_password', 'password', 'password_confirmation']);
-        $this->editing = '';
-        $this->dispatch('password-updated');
-    }
-};
-?>
 <section class="p-8 bg-light-white shadow rounded-xl max-w-xl">
     <form wire:submit="updateProfileInformation" class=" space-y-6">
-        <!-- Profile Photo & informations -->
         <div class="flex gap-4 lg:gap-8 items-center">
             <div class="flex items-center gap-3">
                 <div class="relative w-20 h-20 mx-auto rounded-full ">
@@ -188,8 +87,6 @@ new class extends Component {
                 @endif
             </div>
         @endif
-
-        <!-- Passwort -->
         <x-form.display-password-field :editing="$editing"/>
     </form>
 </section>

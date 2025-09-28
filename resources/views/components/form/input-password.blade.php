@@ -4,7 +4,7 @@
     <label for="{{ $name }}" class="relative mb-1 block text-xs text-myblack ">
         {{ ucfirst($label) }}
         @if ($required)
-            <span aria-hidden="true" class="absolute -top-0.1 ml-1 text-turquoise text-2xl leading-none">*</span>
+            <span aria-hidden="true" class="absolute -top-0.1 ml-1 text-turquoise text-xs lg:text-2xl leading-none">*</span>
         @endif
     </label>
     <div class="flex flex-row justify-between border border-myblack rounded-lg text-myblack pr-2">
@@ -16,7 +16,7 @@
                 wire:model.defer="{{ $model }}"
             @endif
             placeholder="{{ $placeholder ?: '••••••••' }}"
-            class="m-0 text-0.2em pt-2.5 pb-1.5 lg:pt-4 lg:pb-2 px-4 lg:text-xs block w-full text-gray-500"
+            class="m-0  pt-2.5 pb-1.5 lg:pt-4 lg:pb-2 px-4  block w-full text-gray-500 text-xs"
             {{ $attributes }}
         >
         <div class="  flex justify-center items-center space-x-1 cursor-pointer">
