@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-4">
     @foreach ($messages as $message)
-        <x-ui.message
+        <x-ui.messages.message
                 :icon="$message['icon']"
                 :message="$message['message']"
                 :linkText="$message['linkText']"
