@@ -9,7 +9,6 @@
         {{ $banner ?? null }}
         <livewire:sidebar/>
     </header>
-
     {{-- MAIN --}}
     <main class="px-4 mt-18 bg-mywhite min-h-[100vh] lg:mt-8">
         <p>Hallo (app.blade)</p>

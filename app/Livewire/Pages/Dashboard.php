@@ -13,12 +13,14 @@ class Dashboard extends Component
     protected function getMessages(): array
     {
         $messages = [];
+        $user = Auth::user();
 
         $messages[] = [
             'component' => 'ui.messages.welcome-message',
-            'props' => [],
+            'props' => [
+                'username' => $user->firstname,
+            ],
         ];
-        // wenn räume und so kommen anpassen mit mereren optionen 
 
         return $messages;
     }

@@ -10,7 +10,7 @@
       @sidebar-toggled.window="$el.style.marginLeft = $event.detail.expanded ? '16rem' : '5rem'"
       style="margin-left: {{ session('sidebar_expanded', true) ? '16rem' : '5rem' }};"
 >
-    <x-main-title>{{$title}}</x-main-title>
+    <x-texts.main-title>{{$title}}</x-texts.main-title>
     {{ $slot }}
     </main>
 @livewireScripts
