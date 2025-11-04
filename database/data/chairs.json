@@ -1,4 +1,3 @@
-// chat fargen für description und price und grösse napssne
 [
     {
         "title": "Pink Chair",
@@ -6,7 +5,7 @@
         "size": "100x200cm",
         "price": 120,
         "category": "chair",
-        "image_url": "/images/chair/chair-pink.webp",
+        "image_url": "/images/chairs/chair-pink.webp",
         "shop_link": "https://www.temu.com/be/1pc-contemporary-velvet-dining-chair-with-bow-accent-elegant-metal-frame-soft-cushioned-backrest-sturdy-construction-no-electricity-needed-g-601104553522939.html?top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F9b629cce-83ac-4317-b7e0-92ec759a4d07.jpg&sku_id=17615310651215&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=NTE3Mw&_oak_gallery_order=905172159%2C1603594578%2C1861898423%2C120505606%2C1425164272&search_key=pink%20chair&refer_page_el_sn=200049&_x_sessn_id=bk3724wixg&refer_page_name=search_result&refer_page_id=10009_1762095145274_g8obww4nqo",
         "is_public": true,
         "user_id": 1
@@ -16,9 +15,9 @@
         "description": "",
         "size": "200x90cm",
         "price": 480,
-        "category": "sofa",
-        "image_url": "/images/chair/chair-vintagegreen.webp",
-        "shop_link": "https://www.temu.com/be/elegant-teal-golden-upholstered-makeup-vanity-chair--frame-with-white-non-slip-feet-no--sturdy-posture-supporting-for-dressing-table-bedroom-or-carpeted-floors-durable-sofa-like-g-601103277535167.html?_oak_name_id=3674415075620412296&_oak_mp_inf=EL%2Ff0pq01ogBGhZnb29kc193MDV5c2dfcmVjb21tZW5kIOLJrqikMw%3D%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F912056e0-47eb-45ee-a56b-b3dfaf62f0b5.jpg&spec_gallery_id=22913744854&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=NzU3OA&_oak_gallery_order=1351786207%2C1410671126%2C790544983%2C1409673668%2C2019333654&refer_page_el_sn=200444&_x_sessn_id=bk3724wixg&refer_page_name=goods&refer_page_id=10032_1762094981789_c7ru4joj1x\n",
+        "category": "chair",
+        "image_url": "/images/chairs/chair-vintagegreen.webp",
+        "shop_link": "https://www.temu.com/be/elegant-teal-golden-upholstered-makeup-vanity-chair--frame-with-white-non-slip-feet-no--sturdy-posture-supporting-for-dressing-table-bedroom-or-carpeted-floors-durable-chair-like-g-601103277535167.html?_oak_name_id=3674415075620412296&_oak_mp_inf=EL%2Ff0pq01ogBGhZnb29kc193MDV5c2dfcmVjb21tZW5kIOLJrqikMw%3D%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F912056e0-47eb-45ee-a56b-b3dfaf62f0b5.jpg&spec_gallery_id=22913744854&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=NzU3OA&_oak_gallery_order=1351786207%2C1410671126%2C790544983%2C1409673668%2C2019333654&refer_page_el_sn=200444&_x_sessn_id=bk3724wixg&refer_page_name=goods&refer_page_id=10032_1762094981789_c7ru4joj1x\n",
         "is_public": true,
         "user_id": 1
     },
@@ -27,8 +26,8 @@
         "description": "",
         "size": "200x90cm",
         "price": 480,
-        "category": "sofa",
-        "image_url": "/images/chair/chair-pinkmussel",
+        "category": "chair",
+        "image_url": "/images/chairs/chair-pinkmussel",
         "shop_link": "https://www.temu.com/be/upholstered-dining-room-chairs-dressing-table-chair-velvet-petal-backrest-recliner-chair-with-metal-legs-golden--load-150kg-chaise-confortable-restaurant-furniture-furniture-for-home-chaise-de-cuisine-confortable--home-dining-furniture-elegant-design-stylish-seating-memory-foam-cushion-durable-construction-comfortable-seating-restaurant-owners--g-601099659698065.html?_oak_mp_inf=EJG%2Fw92m1ogBGhZnb29kc19xdGUzb3dfcmVjb21tZW5kIIHwpKikMw%3D%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F0315d328-a820-497b-9352-ea89d57dad15.jpg&spec_gallery_id=32385&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=MjAwMjk&_oak_gallery_order=2083271699%2C675280455%2C599899215%2C796717545%2C1616309819&refer_page_el_sn=200444&_x_sessn_id=bk3724wixg&refer_page_name=goods&refer_page_id=10032_1762094822774_ae8sd2cebr\n",
         "is_public": true,
         "user_id": 1
@@ -38,8 +37,8 @@
         "description": "",
         "size": "200x90cm",
         "price": 480,
-        "category": "sofa",
-        "image_url": "/images/chair/chair-whiteelegantformed",
+        "category": "chair",
+        "image_url": "/images/chairs/chair-whiteelegantformed",
         "shop_link": "https://www.temu.com/be/elegant-fabric--with-backrest--memory-foam-cushion-ideal-for-bedroom-dressing-room-or-nail-salon-easy-assembly-no-power-needed-nail---chair-wooden-frame-chair-nail--g-601103052354634.html?_oak_name_id=3169024306991831679&_oak_mp_inf=EMrooq%2Bz1ogBGhZnb29kc192dnd3ZW5fcmVjb21tZW5kIJSlqaikMw%3D%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Fopen%2Ff903bf462b9c4e439b9710d87c22f674-goods.jpeg&spec_gallery_id=21777946751&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=NjE4OQ&_oak_gallery_order=1036089340%2C318416397%2C699036605%2C2049855698%2C805508661&refer_page_el_sn=200444&_x_sessn_id=bk3724wixg&refer_page_name=goods&refer_page_id=10032_1762094895216_ljeog6b45h",
         "is_public": true,
         "user_id": 1
@@ -49,8 +48,8 @@
         "description": "",
         "size": "200x90cm",
         "price": 480,
-        "category": "sofa",
-        "image_url": "/images/chair/chair-whiteelegantformed",
+        "category": "chair",
+        "image_url": "/images/chairs/chair-whiteelegantformed",
         "shop_link": "https://www.temu.com/be/white-metal-frame-cream-vanity-stool-with-soft-cushioned-seat-padded-non-slip-friendly-round-front-loading--for-girls-bedroom-dressing-table-salon-easy-clean-modern-minimalist-no-assembly-luxury-like-accent-ottoman--bedroom-stool-for-makeup-makeup-ottoman-stool-storage-ottoman-make-up-stool-vanity-storage-stool-ottoman-chic-round--s-vintage-make-up-stool-stool-for-vanityk-stools-for-vanity--with-g-601099817648266.html?_oak_name_id=7840551993841138918&_oak_mp_inf=EIqB7Kin1ogBGhZnb29kc18xMjNrYTFfcmVjb21tZW5kIKi%2FqKikMw%3D%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F962c4306-3fa8-43ef-9c0d-d3ebf51c1df4.jpg&spec_gallery_id=44739&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=NjIzNQ&_oak_gallery_order=893425530%2C1414798096%2C1114866288%2C655748991%2C1041894107&refer_page_el_sn=200444&_x_sessn_id=bk3724wixg&refer_page_name=goods&refer_page_id=10032_1762094882159_kv6dylfdx1",
         "is_public": true,
         "user_id": 1

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('size')->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->string('category')->nullable();
-            $table->string('shop_link')->nullable();
+            $table->text('shop_link')->nullable();
             $table->boolean('is_public')->default(true);
             $table->timestamps();
 

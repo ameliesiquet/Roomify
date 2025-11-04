@@ -1,0 +1,13 @@
+[
+    {
+        "title": "Hanging Lamp",
+        "description": "",
+        "size": "200x90cm",
+        "price": 480,
+        "category": "lamp",
+        "image_url": "/images/lamp/lamp-decke.webp",
+        "shop_link": "",
+        "is_public": true,
+        "user_id": 1
+    }
+]
