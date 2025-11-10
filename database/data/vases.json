@@ -1,7 +1,7 @@
 [
     {
         "title": "Vase abstract women form",
-        "description": "",
+        "description": "Modern abstract ceramic vase in the shape of a woman, elegant white texture, minimalist design for home decor.",
         "size": "200x90cm",
         "price": 480,
         "category": "vase",
@@ -12,7 +12,7 @@
     },
     {
         "title": "Vase cute person form",
-        "description": "",
+        "description": "Small cute decorative flower pot in the shape of a person, perfect for indoor modern decor.",
         "size": "200x90cm",
         "price": 480,
         "category": "vase",
@@ -23,7 +23,7 @@
     },
     {
         "title": "Modern rose vase",
-        "description": "",
+        "description": "Modern pink abstract vase, thick base, leak-proof design, ideal centerpiece for living room or office decor.",
         "size": "200x90cm",
         "price": 480,
         "category": "vase",
@@ -34,18 +34,18 @@
     },
     {
         "title": "Stone coloured vase",
-        "description": "",
+        "description": "Set of 3 stone-colored resin vases, decorative only, perfect for artificial flowers and modern interior design.",
         "size": "200x90cm",
         "price": 480,
         "category": "vase",
         "image_url": "/images/vase/vase-stonecolor.webp",
-        "shop_link": "https://www.temu.com/be/3pcs-resin-stone-vase-set-vases-cant-store-water-can-only-decorate-artificial-flowers--deer-christmas-elk-set-table-decoration-for-living-room-dining-room-tv-cabinet-housewarming-gift-no-power-supply-g-601101368849618.html?_oak_name_id=5508510531324376535&_oak_mp_inf=ENLpwYyt1ogBGhZnb29kc19nZ2JpMDVfcmVjb21tZW5kIPvFyaikMw%3D%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F323883ed-ceba-4eed-b2d9-13e0a05e3cb5.jpg&spec_gallery_id=217953&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=MTc4NQ&_oak_gallery_order=1212200108%2C1913462211%2C45439356%2C901438430%2C4740713&refer_page_el_sn=200444&_x_sessn_id=bk3724wixg&refer_page_name=goods&refer_page_id=10032_1762095423651_tgu226ltvn\n",
+        "shop_link": "https://www.temu.com/be/3pcs-resin-stone-vase-set-vases-cant-store-water-can-only-decorate-artificial-flowers--deer-christmas-elk-set-table-decoration-for-living-room-dining-room-tv-cabinet-housewarming-gift-no-power-supply-g-601101368849618.html?_oak_name_id=5508510531324376535&_oak_mp_inf=ENLpwYyt1ogBGhZnb29kc19nZ2JpMDVfcmVjb21tZW5kIPvFyaikMw%3D%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F323883ed-ceba-4eed-b2d9-13e0a05e3cb5.jpg&spec_gallery_id=217953&refer_page_sn=10032&refer_source=10016&freesia_scene=11&_oak_freesia_scene=11&_oak_rec_ext_1=MTc4NQ&_oak_gallery_order=1212200108%2C1913462211%2C45439356%2C901438430%2C4740713&refer_page_el_sn=200444&_x_sessn_id=bk3724wixg&refer_page_name=goods&refer_page_id=10032_1762095423651_tgu226ltvn",
         "is_public": true,
         "user_id": 1
     },
     {
         "title": "Creative white vase",
-        "description": "",
+        "description": "Minimalist creative hug-shaped plastic vase set, modern decor for living room or dining table.",
         "size": "200x90cm",
         "price": 480,
         "category": "vase",
@@ -56,7 +56,7 @@
     },
     {
         "title": "White gold vase",
-        "description": "",
+        "description": "Boho style ceramic vase set with white and golden round vases, elegant centerpiece for living room or kitchen.",
         "size": "200x90cm",
         "price": 480,
         "category": "vase",
@@ -66,8 +66,8 @@
         "user_id": 1
     },
     {
-        "title": "White sriped vase",
-        "description": "",
+        "title": "White striped vase",
+        "description": "Elegant 20cm ceramic vase with striped texture, perfect for modern flower arrangements or home decor.",
         "size": "200x90cm",
         "price": 480,
         "category": "vase",

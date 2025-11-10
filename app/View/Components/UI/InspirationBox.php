@@ -8,19 +8,16 @@ use Illuminate\View\Component;
 
 class InspirationBox extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $items;
+
+    public function __construct($items)
     {
-        //
+        $this->items = $items;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.ui.inspiration-box');
     }
 }
+

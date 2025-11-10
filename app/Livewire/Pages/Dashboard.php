@@ -2,40 +2,44 @@
 
 namespace App\Livewire\Pages;
 
-use App\Models\User;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Dashboard extends Component
 {
-    public $message = [];
+    public $messages = [];
+    public $inspirations = [];
+
+    public function mount()
+    {
+        $this->inspirations = Item::where('is_public', true)->inRandomOrder()->take(5)->get();
+        $this->messages = $this->getMessages();
+    }
 
     protected function getMessages(): array
     {
-        $messages = [];
         $user = Auth::user();
 
-        $messages[] = [
-            'component' => 'ui.messages.welcome-message',
-            'props' => [
-                'username' => $user->firstname,
-            ],
+        return [
+            [
+                'component' => 'ui.messages.welcome-message',
+                'props' => [
+                    'username' => $user->firstname,
+                ],
+            ]
         ];
-
-        return $messages;
     }
-
 
     public function render()
     {
-
         $user = auth()->user();
 
         return view('livewire.pages.dashboard', [
-            'messages' => $messages = $this->getMessages(),
+            'messages' => $this->messages,
+            'inspirations' => $this->inspirations,
         ])->layout('layouts.app-sidebar', [
             'title' => $user ? "Welcome, {$user->firstname}!" : 'Dashboard',
         ]);
     }
-
 }

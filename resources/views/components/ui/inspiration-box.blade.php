@@ -1,7 +1,20 @@
-<div class="inspiration-boxes">
+<div
+    x-data="{ selectedItem: null }"
+    class="relative"
+>
 
-    <div class="bg-mywhite fill-mywhite">
-        <p>inspo fotos</p>
-        <img src="../svg/kitchen.blade.php" alt="lamp">
+    <!-- GRID -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        @foreach($items as $item)
+            <div class="cursor-pointer"
+                 @click="selectedItem = {{ $item->toJson() }}">
+                <img src="{{ $item->image_url }}" class="w-full h-48 object-cover rounded-lg">
+                <h3 class="mt-2 font-semibold">{{ $item->title }}</h3>
+            </div>
+        @endforeach
     </div>
+
+    <!-- MODAL (importiert aus deiner separaten Datei) -->
+    @include('livewire.modals.selected-item')
+
 </div>
