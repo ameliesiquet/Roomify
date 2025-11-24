@@ -2,12 +2,11 @@
 <div
     x-show="selectedItem"
     x-cloak
-    class="fixed inset-0 bg-black/40 flex items-center justify-center p-4"
+    class="fixed inset-0 bg-black/40 flex items-center justify-center p-4 z-100"
     @click.self="selectedItem = null"
 >
     <article class="bg-white p-6 rounded-xl w-full max-w-4xl shadow-xl z-50">
 
-        <!-- Close Button -->
         <button
             class="mb-4 cursor-pointer"
             @click="selectedItem = null"
@@ -15,10 +14,8 @@
             <x-svg.arrow-left></x-svg.arrow-left>
         </button>
 
-        <!-- CONTENT -->
         <div class="flex flex-col md:flex-row gap-6">
 
-            <!-- IMAGE COLUMN -->
             <div class="flex-shrink-0 md:w-1/2">
                 <template x-if="selectedItem">
                     <img
@@ -28,7 +25,6 @@
                 </template>
             </div>
 
-            <!-- TEXT COLUMN -->
             <div class="flex flex-col md:w-1/2 gap-3 overflow-hidden">
 
                 <h2 class="text-2xl text-turquoise break-words"
@@ -58,7 +54,7 @@
                 >
                     Where can I buy it?
                 </a>
-
+                <!-- Button für das item einzufügen -->
             </div>
         </div>
     </article>

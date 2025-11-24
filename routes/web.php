@@ -1,20 +1,20 @@
 <?php
 
-use App\Livewire\Pages\Budget\Budget;
+use App\Livewire\Pages\Budget;
 use App\Livewire\Pages\Dashboard;
-use App\Livewire\Pages\Items\Items;
+use App\Livewire\Pages\Items;
 use App\Livewire\Pages\Profile\Profile;
-use App\Livewire\Pages\Rooms\Rooms;
+<<<<<<< Updated upstream
+use App\Livewire\Pages\Rooms;
 use App\Livewire\Pages\Shopping;
+=======
+use App\Livewire\Pages\Rooms\Rooms;
+use App\Livewire\Pages\Shopping\Shopping;
 use Illuminate\Support\Facades\Auth;
+>>>>>>> Stashed changes
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect()->route('dashboard');
-    }
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
