@@ -1,5 +1,9 @@
-<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0.5" y="0.5" width="17" height="16" rx="8" stroke="#446163"/>
-    <path d="M9 3.54175V13.4584M3.75 8.50008H14.25" stroke="#446163" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+@props(['onclick' => ''])
 
+<button type="button"
+        {{ $attributes->merge(['class' => 'w-6 h-6 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100 transition cursor-pointer']) }}
+        @click.stop="{{ $onclick }}">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 text-gray-800">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+    </svg>
+</button>
