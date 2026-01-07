@@ -17,16 +17,22 @@ class Shopping extends Component
         })
             ->orderBy('created_at', 'desc')
             ->get();
-    }
 
+        $this->categories = $this->items
+            ->pluck('category')
+            ->unique()
+            ->values();
+    }
     public function render()
     {
         return view('livewire.pages.shopping', [
-            'items' => $this->items
+            'items' => $this->items,
+            'categories' => $this->categories,
         ])
             ->layout('layouts.app-sidebar', [
                 'title' => 'Browse Items',
             ]);
     }
+
 
 }
