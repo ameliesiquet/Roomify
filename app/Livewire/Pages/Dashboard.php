@@ -9,7 +9,13 @@ class Dashboard extends Component
     public array $messages = [];
     private function getDashboardMessages($user): array
     {
+<<<<<<< Updated upstream
         $messages = [];
+=======
+        $this->inspirations = Item::where('is_public', true)->inRandomOrder()->take(20)->get();
+        $this->messages = $this->getMessages();
+    }
+>>>>>>> Stashed changes
 
         if (!$user) {
             return $messages;
