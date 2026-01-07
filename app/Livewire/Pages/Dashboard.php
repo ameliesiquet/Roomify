@@ -10,8 +10,11 @@ class Dashboard extends Component
     private function getDashboardMessages($user): array
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         $messages = [];
 =======
+=======
+>>>>>>> Stashed changes
         $this->inspirations = Item::where('is_public', true)->inRandomOrder()->take(20)->get();
         $this->messages = $this->getMessages();
     }
