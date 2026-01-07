@@ -8,6 +8,27 @@ use App\Models\Item;
 
 class ItemSeeder extends Seeder
 {
+
+    protected $categoryMap = [
+        'bed' => 'furniture',
+        'chair' => 'furniture',
+        'table' => 'furniture',
+        'cabinet' => 'furniture',
+        'sofa' => 'furniture',
+        'cushion' => 'textiles',
+        'carpet' => 'textiles',
+        'blanket' => 'textiles',
+        'deco' => 'decoration',
+        'vase' => 'decoration',
+        'sculpture' => 'decoration',
+        'wall_art' => 'decoration',
+        'lamp' => 'lighting',
+        'electronics' => 'electronics',
+        'tv' => 'electronics',
+        'projector' => 'electronics',
+        'other' => 'other',
+    ];
+
     public function run(): void
     {
         $dataPath = database_path('data');
@@ -23,8 +44,8 @@ class ItemSeeder extends Seeder
                 continue;
             }
 
-            $category = ucfirst(str_replace('.json', '', $file->getFilename()));
-            $this->command->info("Importing items from {$category}.json ...");
+            $originalCategory = strtolower(str_replace('.json', '', $file->getFilename()));
+            $this->command->info("Importing items from {$originalCategory}.json ...");
 
             $items = json_decode(File::get($file->getPathname()), true);
 
@@ -34,7 +55,20 @@ class ItemSeeder extends Seeder
             }
 
             foreach ($items as $item) {
-                $item['category'] = $item['category'] ?? strtolower($category);
+                $mainCategory = $this->categoryMap[$item['category'] ?? $originalCategory] ?? 'other';
+                $item['category'] = $mainCategory;
+
+                $tags = [];
+                if (isset($item['category']) && $originalCategory !== $mainCategory) {
+                    $tags[] = $originalCategory;
+                }
+                if (isset($item['tags']) && is_array($item['tags'])) {
+                    $tags = array_merge($tags, $item['tags']);
+                }
+                $item['tags'] = !empty($tags) ? json_encode($tags) : null;
+
+                $item['room_id'] = $item['room_id'] ?? null;
+
                 Item::create($item);
             }
 

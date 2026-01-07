@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Mini 4K Theater Projector",
+        "description": "Compact 4K mini projector with WiFi 6 and Bluetooth 5.2, perfect for portable home theater, phone, laptop, or TV stick.",
+        "size": "20x10cm",
+        "price": 48,
+        "category": "electronics",
+        "tags": ["projector", "4k", "home theater", "portable", "wifi6", "bluetooth"],
+        "image_url": "/images/electronics/mini-projector.png",
+        "shop_link": "https://www.temu.com/be/2025--theater-movie-mini-projector-11-0-system-4k-projector-with-wifi-6-and-bt-5-2--4k-native-1080p-projector-with-auto-keystone-compatible-with-phone-laptop-tv-stick--viewing-portable-theater-modern-g-601105083530997.html?_oak_mp_inf=EPX95%2Fe61ogBGiBhOWNmZjY1NmMzNWQ0NWY3YjdhZjQ5NTM4NWFmZTk4NCCAqZOduTM%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F00483a97-00e2-4803-ba67-79c5c5d3d17d.jpg&spec_gallery_id=28238455661&refer_page_sn=10009&refer_source=0&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=NDY5MQ&_oak_gallery_order=1518160886%2C1216027887%2C1334779769%2C1109905476%2C1279797187&search_key=television%20smart%20tv&refer_page_el_sn=200049&ab_scene=1&refer_page_name=search_result&refer_page_id=10009_1767708546563_7wq5o13dcr&_x_sessn_id=d0ntqqscmv",
+        "is_public": true,
+        "user_id": 1
+    },
+    {
+        "title": "Home Cinema Projector Screen",
+        "description": "80-inch 4K HD projector screen with adjustable tripod stand, ideal for home theater, office presentations, and classroom displays.",
+        "size": "300x260cm",
+        "price": 50,
+        "category": "electronics",
+        "tags": ["projector screen", "home cinema", "4k", "tripod", "portable"],
+        "image_url": "/images/electronics/projector-screen.png",
+        "shop_link": "https://www.temu.com/be/80-4k-hd-projector-screen-with-adjustable-tripod-stand-portable-clear-matte-pvc-fabric-16-9--ratio-2-0--fiberglass-160-viewing-angle-ideal-for-home-theater-office-presentations-and--classroom-display-clear-vivid-image-high-fabric-projector-for-movies-on-wall-g-601099739360359.html?_oak_mp_inf=EOfYwYOn1ogBGiAxNDljNjk0NjViNzk0YjEwYTUzZjllZDZjMWVhM2Q1OCDlgJ2duTM%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F588c4858-1225-4cb5-9a70-bd2b0d8d3987.jpg&spec_gallery_id=20138&refer_page_sn=10009&refer_source=10051&freesia_scene=2&_oak_freesia_scene=2&_oak_rec_ext_1=NDQyMg&_oak_gallery_order=1939049161%2C1929475302%2C1264880630%2C1803129083%2C1002673563&_x_sff=1&search_key=home%20cinema&refer_page_el_sn=200049&ab_scene=1&_x_enter_scene_type=cate_tab&_x_sessn_id=d0ntqqscmv&refer_page_name=search_result&refer_page_id=10009_1767708770785_mokcrc9hrp",
+        "is_public": true,
+        "user_id": 1
+    }
+]

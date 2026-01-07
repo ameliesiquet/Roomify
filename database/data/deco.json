@@ -2,7 +2,7 @@
     {
         "title": "Abstract 3D Paintings",
         "description": "Set of abstract 3D canvas paintings, ready to hang, ideal for living room or office decor.",
-        "size": "200x90cm",
+        "size": "120x80cm",
         "price": 60,
         "category": "deco",
         "image_url": "/images/deco/deco-3dprints.webp",
@@ -13,9 +13,9 @@
     {
         "title": "Corner Bookshelf",
         "description": "Rustic 5-tier corner bookshelf, stylish and functional, perfect for living room or office.",
-        "size": "200x90cm",
+        "size": "180x60x60cm",
         "price": 85,
-        "category": "deco",
+        "category": "other",
         "image_url": "/images/deco/deco-cornerbookshelf.webp",
         "shop_link": "https://www.temu.com/be/corner-shelf-rustic-5-tier-wall-corner-bookshelf-stylish-corner-small-bookcase-storage-rack-plant-stand-with-unique-shape-for-living-room-home-office-g-601100360920708.html",
         "is_public": true,
@@ -24,7 +24,7 @@
     {
         "title": "Golden abstract figurine",
         "description": "Modern minimalist gold-tone abstract figurine, perfect as a home or office accent piece.",
-        "size": "200x90cm",
+        "size": "30x12cm",
         "price": 40,
         "category": "deco",
         "image_url": "/images/deco/deco-goldfigure.webp",
@@ -35,7 +35,7 @@
     {
         "title": "Golden automatic fountain",
         "description": "Small indoor fountain with automatic water flow, doubles as a relaxing decorative humidifier.",
-        "size": "200x90cm",
+        "size": "35x25cm",
         "price": 55,
         "category": "deco",
         "image_url": "/images/deco/deco-goldfoutnaine.webp",
@@ -46,7 +46,7 @@
     {
         "title": "Pair of blue golden swans",
         "description": "Elegant pair of blue and gold swan figurines with rose accents, handcrafted resin decor for shelves or desks.",
-        "size": "200x90cm",
+        "size": "28x15cm",
         "price": 48,
         "category": "deco",
         "image_url": "/images/deco/deco-swans.webp",
@@ -57,7 +57,7 @@
     {
         "title": "White abstract faces",
         "description": "Set of 3 creative resin abstract face sculptures, ideal for modern home or office decoration.",
-        "size": "200x90cm",
+        "size": "22x10cm",
         "price": 50,
         "category": "deco",
         "image_url": "/images/deco/deco-whiteabstractfaces.webp",

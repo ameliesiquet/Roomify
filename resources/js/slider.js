@@ -1,7 +1,10 @@
-import Swiper from 'swiper';
+import Swiper, { Navigation, Pagination, FreeMode } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/free-mode';
+
+Swiper.use([Navigation, Pagination, FreeMode]);
 
 function initSwiper() {
     document.querySelectorAll('.mySwiper').forEach(el => {
@@ -10,22 +13,20 @@ function initSwiper() {
         }
 
         new Swiper(el, {
-            slidesPerView: 1,
+            slidesPerView: 'auto',
             spaceBetween: 10,
-            loop: true,
-            pagination: {
-                el: el.querySelector('.swiper-pagination'),
-                clickable: true,
-            },
+            freeMode: true,
+            loop: false,
             navigation: {
                 nextEl: el.querySelector('.swiper-button-next'),
                 prevEl: el.querySelector('.swiper-button-prev'),
             },
-            breakpoints: {
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
+            pagination: {
+                el: el.querySelector('.swiper-pagination'),
+                clickable: true,
             },
         });
+
     });
 }
 

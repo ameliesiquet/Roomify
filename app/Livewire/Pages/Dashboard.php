@@ -1,45 +1,50 @@
 <?php
 
 namespace App\Livewire\Pages;
-
-use App\Models\Item;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-
 class Dashboard extends Component
 {
-    public $messages = [];
-    public $inspirations = [];
-
-    public function mount()
+    public array $messages = [];
+    private function getDashboardMessages($user): array
     {
-        $this->inspirations = Item::where('is_public', true)->inRandomOrder()->take(5)->get();
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+        $messages = [];
+=======
+=======
+>>>>>>> Stashed changes
+        $this->inspirations = Item::where('is_public', true)->inRandomOrder()->take(20)->get();
         $this->messages = $this->getMessages();
     }
+>>>>>>> Stashed changes
 
-    protected function getMessages(): array
+        if (!$user) {
+            return $messages;
+        }
+
+        if ($user) {
+            $messages[] = [
+                'icon' => '💬',
+                'message' => "Welcome to Roomify! 🏡✨\nLet’s get started — create your first room or browse for inspiration.\n\n➡️ Tip: Start with the room you use the most — maybe your bedroom?",
+
+                'linkText' => 'Add your first room',
+                'linkHref' => route('rooms'),
+                'time' => now()->format('H:i'),
+            ];
+        }
+        return $messages;
+    }
+    public function render()
     {
         $user = Auth::user();
 
-        return [
-            [
-                'component' => 'ui.messages.welcome-message',
-                'props' => [
-                    'username' => $user->firstname,
-                ],
-            ]
-        ];
-    }
-
-    public function render()
-    {
-        $user = auth()->user();
-
         return view('livewire.pages.dashboard', [
-            'messages' => $this->messages,
-            'inspirations' => $this->inspirations,
+            'dashboardMessages' => $this->getDashboardMessages($user),
         ])->layout('layouts.app-sidebar', [
             'title' => $user ? "Welcome, {$user->firstname}!" : 'Dashboard',
         ]);
     }
+
 }
