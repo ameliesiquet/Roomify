@@ -1,7 +1,7 @@
 <section x-data="{
     selectedItem: null,
     showRoomListModal: false,
-    userRooms: @json(auth()->user()->rooms ?? []),
+    userRooms: @json($rooms),
     selectedRoomItemId: null,
     selectedCategory: 'all',
     openRoomListModal(itemId) {
@@ -12,6 +12,7 @@
         this.showRoomListModal = false;
     }
 }">
+    <pre class="text-xs text-gray-400" x-text="JSON.stringify(userRooms, null, 2)"></pre>
 
     <div class="flex items-center gap-4 overflow-x-auto mb-8">
         <button

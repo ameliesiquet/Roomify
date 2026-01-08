@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->decimal('budget', 10, 2)->nullable();
+            $table->decimal('spent', 10, 2)->default(0);
+            $table->json('colors')->nullable();
+            $table->text('notes')->nullable();
+            $table->json('todo_list')->nullable();
             $table->timestamps();
         });
     }

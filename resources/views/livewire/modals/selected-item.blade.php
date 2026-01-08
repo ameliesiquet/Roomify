@@ -1,4 +1,3 @@
-<!-- MODAL -->
 <div
     x-show="selectedItem"
     x-cloak
