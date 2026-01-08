@@ -1,50 +1,45 @@
 <?php
 
 namespace App\Livewire\Pages;
+use AllowDynamicProperties;
+use App\Models\Item;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-class Dashboard extends Component
+#[AllowDynamicProperties] class Dashboard extends Component
 {
-    public array $messages = [];
-    private function getDashboardMessages($user): array
+    public $messages = [];
+    public $inspirations = [];
+
+    public function mount()
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        $messages = [];
-=======
-=======
->>>>>>> Stashed changes
-        $this->inspirations = Item::where('is_public', true)->inRandomOrder()->take(20)->get();
+        $this->inspirations = Item::where('is_public', true)->inRandomOrder()->take(5)->get();
         $this->messages = $this->getMessages();
     }
->>>>>>> Stashed changes
 
-        if (!$user) {
-            return $messages;
-        }
-
-        if ($user) {
-            $messages[] = [
-                'icon' => '💬',
-                'message' => "Welcome to Roomify! 🏡✨\nLet’s get started — create your first room or browse for inspiration.\n\n➡️ Tip: Start with the room you use the most — maybe your bedroom?",
-
-                'linkText' => 'Add your first room',
-                'linkHref' => route('rooms'),
-                'time' => now()->format('H:i'),
-            ];
-        }
-        return $messages;
+    protected function getMessages(){
+        $user = Auth::user();
+        return [
+            [
+                'component' => 'ui.messages.welcome-message',
+                'props' => [
+                    'username' => $user->firstname,
+                ],
+            ]
+        ];
     }
+
     public function render()
     {
-        $user = Auth::user();
+        $user = auth()->user();
 
         return view('livewire.pages.dashboard', [
-            'dashboardMessages' => $this->getDashboardMessages($user),
+            'messages' => $this->messages,
+            'inspirations' => $this->inspirations,
         ])->layout('layouts.app-sidebar', [
             'title' => $user ? "Welcome, {$user->firstname}!" : 'Dashboard',
         ]);
     }
+
 
 }

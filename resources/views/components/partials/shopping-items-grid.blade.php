@@ -15,7 +15,8 @@
             x-show="selectedCategory === 'all' || selectedCategory === category"
             x-transition.opacity
             class="relative overflow-hidden cursor-pointer"
-            @click="selectedItem = @json($item)"
+            @click="selectedItem = {{ $item->toJson() }}"
+
         >
 
             <img src="{{ $item->image_url }}"

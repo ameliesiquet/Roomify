@@ -70,7 +70,7 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new CustomResetPassword($token));
     }
 
-   /* public function rooms()
+    public function rooms()
     {
         return $this->hasMany(Room::class);
     }
@@ -78,6 +78,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function items()
     {
         return $this->hasMany(Item::class);
-    }*/
+    }
 
 }
