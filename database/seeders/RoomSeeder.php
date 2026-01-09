@@ -10,7 +10,8 @@ class RoomSeeder extends Seeder
 {
     public function run(): void
     {
-        $user = User::where('email', 'am@ex.com')->findOrFail();
+        $user = User::where('email', 'am@ex.com')->firstOrFail();
+
         $this->rooms = $user->rooms()->get();
 
 

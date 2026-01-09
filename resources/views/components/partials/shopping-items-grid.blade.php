@@ -9,21 +9,19 @@
     lg:gap-x-8 lg:gap-y-10
     xl:gap-x-14 xl:gap-y-12
 ">
+
     @foreach($items as $item)
         <div
-            x-data="{ category: '{{ $item->category }}' }"
-            x-show="selectedCategory === 'all' || selectedCategory === category"
-            x-transition.opacity
-            class="relative overflow-hidden cursor-pointer"
-            @click="selectedItem = {{ $item->toJson() }}"
-
+                :class="(selectedCategory === 'all' || selectedCategory === '{{ $item->category }}') ? '' : 'hidden'"
+                class="relative overflow-hidden cursor-pointer transition-opacity duration-300"
+                @click="selectedItem = {{ $item->toJson() }}"
         >
 
             <img src="{{ $item->image_url }}"
                  class="h-40 md:h-50 lg:h-60 w-full object-cover rounded-xl">
 
             <div class="p-3 flex flex-col gap-1">
-                <h3 class="text-sm lg:text-md xl:text-xlline-clamp-2 text-nowrap overflow-hidden">
+                <h3 class="text-sm lg:text-md xl:text-xl line-clamp-2 text-nowrap overflow-hidden">
                     {{ $item->title }}
                 </h3>
 

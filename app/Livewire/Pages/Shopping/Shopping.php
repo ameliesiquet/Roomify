@@ -13,15 +13,16 @@ class Shopping extends Component
 
     public function mount()
     {
-        dd(auth()->id(), $this->rooms);
 
         $user = auth()->user();
         $this->items = Item::where(function ($q) {
             $q->where('is_public', true)
                 ->orWhere('user_id', auth()->id());
         })
+            ->whereNotNull('category')
             ->orderBy('created_at', 'desc')
             ->get();
+
 
         $this->categories = $this->items
             ->pluck('category')
