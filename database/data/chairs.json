@@ -41,7 +41,8 @@
         "image_url": "/images/chairs/chair-whiteelegantformed.webp",
         "shop_link": "https://www.temu.com/be/elegant-fabric--with-backrest--memory-foam-cushion-ideal-for-bedroom-dressing-room-or-nail-salon-easy-assembly-no-power-needed-nail---chair-wooden-frame-chair-nail--g-601103052354634.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": 1,
+        "room_id" : 1
     },
     {
         "title": "Rounded white Chair",
@@ -52,6 +53,7 @@
         "image_url": "/images/chairs/chair-whiterounded.webp",
         "shop_link": "https://www.temu.com/be/white-metal-frame-cream-vanity-stool-with-soft-cushioned-seat-padded-non-slip-friendly-round-front-loading--for-girls-bedroom-dressing-table-salon-easy-clean-modern-minimalist-no-assembly-luxury-like-accent-ottoman--bedroom-stool-for-makeup-makeup-ottoman-stool-storage-ottoman-make-up-stool-vanity-storage-stool-ottoman-chic-round--s-vintage-make-up-stool-stool-for-vanityk-stools-for-vanity--with-g-601099817648266.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": 1,
+        "room_id" : 1
     }
 ]

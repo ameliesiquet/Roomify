@@ -30,7 +30,8 @@
         "image_url": "/images/deco/deco-goldfigure.webp",
         "shop_link": "https://www.temu.com/be/modern-minimalist-gold-tone-abstract-figurine-bookends--home-office-or-living-room-decor-g-601099576002529.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": 1,
+        "room_id" : 1
     },
     {
         "title": "Golden automatic fountain",
@@ -63,6 +64,7 @@
         "image_url": "/images/deco/deco-whiteabstractfaces.webp",
         "shop_link": "https://www.temu.com/be/3pcs-set-creative-resin-mask-abstract-statue--style-abstract-art-sculpture-home-decor-coffee-table-office-desk-living-room--suitable-for-friends-holiday-gifts-g-601102466503449.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": 1,
+        "room_id" : 1
     }
 ]
