@@ -15,7 +15,7 @@
         this.showRoomListModal = false;
     }
 }">
-    <div x-show="successMessage" x-transition class="  text-green-700  z-50 mb-8 text-sm">
+    <div x-show="successMessage" x-transition class="  text-green-600  z-50 mb-8 text-sm">
         <span x-text="successMessage"></span>
     </div>
 
