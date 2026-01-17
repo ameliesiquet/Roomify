@@ -19,7 +19,7 @@
                     type="text"
                     wire:model.lazy="todos.{{ $index }}.text"
                     wire:blur="save"
-                    class="flex-1 text-sm bg-transparent border-b border-transparent focus:border-gray-300 focus:outline-none
+                    class="flex-1 text-xs bg-transparent border-b border-transparent focus:border-gray-300 focus:outline-none
                         {{ $todo['completed'] ? 'line-through text-gray-400' : '' }}"
                     placeholder="New task…"
                 >
@@ -32,14 +32,14 @@
                 </button>
             </div>
         @empty
-            <p class="text-sm text-gray-400 italic">
+            <p class="text-xs text-gray-400 italic">
                 No todos yet…
             </p>
         @endforelse
 
         <button
             wire:click="addTodo"
-            class="text-sm text-turquoise hover:underline mt-4"
+            class="text-xs text-turquoise hover:underline mt-4"
         >
             + Add task
         </button>

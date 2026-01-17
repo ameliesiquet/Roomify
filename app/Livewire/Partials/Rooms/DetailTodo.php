@@ -13,7 +13,14 @@ class DetailTodo extends Component
     public function mount(Room $room)
     {
         $this->room = $room;
-        $this->todos = $room->todo_list ?? [];
+
+        $todos = $room->todo_list ?? [];
+        $this->todos = array_map(function($todo) {
+            if (is_string($todo)) {
+                return ['text' => $todo, 'completed' => false];
+            }
+            return $todo;
+        }, $todos);
     }
 
     public function addTodo()

@@ -9,11 +9,19 @@
             <div class="flex flex-wrap gap-4">
                 @foreach($colorsDraft as $index => $color)
                     <div class="flex items-center gap-2">
-                        <input
-                            type="color"
-                            wire:model="colorsDraft.{{ $index }}"
-                            class="w-6 h-6 rounded-full border border-gray-300 cursor-pointer"
-                        />
+                        <div class="relative w-6 h-6">
+                            <div
+                                class="w-6 h-6 rounded-full border border-gray-300"
+                                style="background-color: {{ $color }}"
+                            ></div>
+
+                            <input
+                                type="color"
+                                wire:model.live="colorsDraft.{{ $index }}"
+                                class="w-6 h-6 absolute inset-0 opacity-0 cursor-pointer"
+                            />
+
+                        </div>
 
                         <button
                             wire:click="removeColor({{ $index }})"
@@ -23,6 +31,7 @@
                         </button>
                     </div>
                 @endforeach
+
 
                 <button
                     wire:click="addColor"

@@ -9,7 +9,7 @@
             @if($editingNotes)
                 <textarea
                     wire:model.defer="notesDraft"
-                    class="w-full rounded-lg border-gray-300 text-sm"
+                    class="w-full rounded-lg border-gray-300 text-xs"
                     placeholder="Write your notes…"
                 ></textarea>
 
@@ -24,9 +24,9 @@
                 </div>
             @else
                 @if($room->notes)
-                    <p class="text-sm text-gray-700">{{ $room->notes }}</p>
+                    <p class="text-xs text-gray-700">{{ $room->notes }}</p>
                 @else
-                    <p class="text-sm text-gray-400 italic">No notes yet...</p>
+                    <p class="text-xs text-gray-400 italic">No notes yet...</p>
                 @endif
             @endif
         </div>
