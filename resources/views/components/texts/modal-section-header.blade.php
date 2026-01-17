@@ -12,7 +12,7 @@
         <button
             type="button"
             {{ $attributes->merge([
-                'class' => 'flex items-center gap-1 text-sm text-gray-600 hover:text-black cursor-pointer'
+                'class' => 'flex items-center gap-1 text-xs text-gray-600 hover:text-black cursor-pointer'
             ]) }}
         >
             Edit
