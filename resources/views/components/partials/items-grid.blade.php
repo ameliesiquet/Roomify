@@ -1,3 +1,11 @@
+@props([
+    'items',
+    'showCategoryFilter' => false,
+    'selectedCategory' => 'all',
+    'onItemClick' => null,
+    'plusButtonAction' => null
+])
+
 <div class="
     grid
     grid-cols-2
@@ -9,15 +17,19 @@
     lg:gap-x-8 lg:gap-y-10
     xl:gap-x-14 xl:gap-y-12
 ">
-
     @foreach($items as $item)
         <div
+            x-data="{ item: @js($item) }"
+            @if($showCategoryFilter)
                 :class="(selectedCategory === 'all' || selectedCategory === '{{ $item->category }}') ? '' : 'hidden'"
-                class="relative overflow-hidden cursor-pointer transition-opacity duration-300"
-                @click="selectedItem = {{ $item->toJson() }}"
+            @endif
+            class="relative overflow-hidden cursor-pointer transition-opacity duration-300"
+            @if($onItemClick)
+                @click="{{ $onItemClick }}"
+            @endif
         >
-
             <img src="{{ $item->image_url }}"
+                 alt="{{ $item->title }}"
                  class="h-40 md:h-50 lg:h-60 w-full object-cover rounded-xl">
 
             <div class="p-3 flex flex-col gap-1">
@@ -40,11 +52,14 @@
             </div>
 
             <div class="absolute top-2 right-2">
-                @include('components.svg.plus', [
-                    'onclick' => "openRoomListModal({$item->id})"
-                ])
+                @if($plusButtonAction)
+                    <button @click.stop="{{ str_replace('{itemId}', $item->id, $plusButtonAction) }}">
+                        @include('components.svg.plus')
+                    </button>
+                @else
+                    <x-svg.plus class="w-5 h-5 text-gray-500"/>
+                @endif
             </div>
-
         </div>
     @endforeach
 </div>
