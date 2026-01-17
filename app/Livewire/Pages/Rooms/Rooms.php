@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages\Rooms;
 
+use App\Models\Item;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Room;
@@ -12,7 +13,6 @@ class Rooms extends Component
     public $showAddRoomModal = false;
     public $showRoomDetailsModal = false;
     public $selectedRoomForDetails = null;
-
 
     public $name = '';
     public $budget = '';
@@ -33,6 +33,10 @@ class Rooms extends Component
     public function openAddRoomModal()
     {
         $this->showAddRoomModal = true;
+        $this->todo_list = [[
+            'text' => '',
+            'completed' => false,
+        ]];
     }
 
     public function closeAddRoomModal()
@@ -59,19 +63,26 @@ class Rooms extends Component
         $this->showRoomDetailsModal = false;
         $this->selectedRoomForDetails = null;
     }
-
-    public function createRoom()
+    protected function rules()
     {
-        $this->validate([
+        return [
             'name' => 'required|string|max:255',
             'budget' => 'nullable|numeric|min:0',
-        ], [
-            'name.required' => 'Bitte gib einen Raumnamen ein.',
-            'name.max' => 'Der Raumname darf maximal 255 Zeichen lang sein.',
-            'budget.numeric' => 'Das Budget muss eine Zahl sein.',
-            'budget.min' => 'Das Budget muss mindestens 0 sein.',
-        ]);
+        ];
+    }
 
+    protected function messages()
+    {
+        return [
+            'name.required' => 'Please enter a room name.',
+            'name.max' => 'The room name may not be greater than 255 characters.',
+            'budget.numeric' => 'Budget must be a number.',
+            'budget.min' => 'Budget must be at least 0.',
+        ];
+    }
+    public function createRoom()
+    {
+        $this->validate();
         $user = Auth::user();
 
         Room::create([
@@ -79,8 +90,8 @@ class Rooms extends Component
             'name' => $this->name,
             'budget' => $this->budget ?: 0,
             'spent' => 0,
-            'colors' => json_encode($this->colors),
-            'todo_list' => json_encode($this->todo_list),
+            'colors' => $this->colors,
+            'todo_list' => $this->todo_list ,
         ]);
 
         session()->flash('message', 'Raum "' . $this->name . '" wurde erfolgreich erstellt!');
@@ -93,10 +104,19 @@ class Rooms extends Component
     {
         $this->colors[] = '#d6d3c9';
     }
+    public function removeColor($index)
+    {
+        unset($this->colors[$index]);
+        $this->colors = array_values($this->colors);
+    }
+
 
     public function addTodo()
     {
-        $this->todo_list[] = '';
+        $this->todo_list[] = [
+            'text' => '',
+            'completed' => false,
+        ];
     }
 
     public function removeTodo($index)
@@ -104,9 +124,6 @@ class Rooms extends Component
         unset($this->todo_list[$index]);
         $this->todo_list = array_values($this->todo_list);
     }
-
-
-
 
 
     protected function getMessages(): array
@@ -124,6 +141,42 @@ class Rooms extends Component
         }
 
         return $messages;
+    }
+    public function deleteRoom()
+    {
+        if (!$this->selectedRoomForDetails) {
+            return;
+        }
+
+        Room::find($this->selectedRoomForDetails->id)?->delete();
+
+        session()->flash('message', 'Room deleted successfully.');
+
+        $this->closeRoomDetailsModal();
+        $this->loadRooms();
+    }
+    public function addItemToRoom($itemId, $roomId)
+    {
+        $room = Room::find($roomId);
+        $item = Item::find($itemId);
+
+        if (!$room || !$item) return;
+
+        $existing = $room->items()->where('item_id', $itemId)->first();
+
+        if ($existing) {
+            $room->items()->updateExistingPivot($itemId, [
+                'quantity' => $existing->pivot->quantity + 1
+            ]);
+        } else {
+            $room->items()->attach($itemId, ['quantity' => 1]);
+        }
+
+        if ($item->price) {
+            $room->increment('spent', $item->price);
+        }
+
+        $room->load('items');
     }
 
     public function render()

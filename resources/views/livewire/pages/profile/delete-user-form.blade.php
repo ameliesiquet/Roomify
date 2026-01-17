@@ -32,7 +32,6 @@ new class extends Component {
         If you ever feel like rearranging or starting fresh, we’ll be right here. 💫
     </p>
 
-    <!-- Button to open modal -->
     <x-button x-data @click="$dispatch('open-modal')">
         Delete Account
     </x-button>
