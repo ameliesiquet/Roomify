@@ -16,44 +16,43 @@
         <div class="flex flex-col md:flex-row gap-6">
 
             <div class="flex-shrink-0 md:w-1/2">
-                <template x-if="selectedItem">
-                    <img
-                        :src="selectedItem.image_url"
-                        class="rounded-lg w-full h-auto max-h-[380px] object-contain"
-                    >
-                </template>
+                <img
+                    :src="selectedItem?.image_url || '/images/placeholder.png'"
+                    class="rounded-lg w-full h-auto max-h-[380px] object-contain"
+                    alt="Item image"
+                >
             </div>
 
             <div class="flex flex-col md:w-1/2 gap-3 overflow-hidden">
 
                 <h2 class="text-2xl text-turquoise break-words"
-                    x-text="selectedItem?.title">
+                    x-text="selectedItem?.title || 'No title available'">
                 </h2>
 
                 <p class="text-gray-600 break-words"
-                   x-text="selectedItem?.description">
+                   x-text="selectedItem?.description || 'No description available'">
                 </p>
 
                 <p class="text-gray-600 text-sm"
-                   x-text="'Size: ' + selectedItem?.size">
+                   x-text="selectedItem ? 'Size: ' + selectedItem.size : ''">
                 </p>
 
-                <p class="text-xl font-light "
-                   x-text="selectedItem?.price + ' €'">
+                <p class="text-xl font-light"
+                   x-text="selectedItem ? selectedItem.price + ' €' : ''">
                 </p>
 
                 <p class="text-sm text-gray-500"
-                   x-text="'Category: ' + selectedItem?.category">
+                   x-text="selectedItem ? 'Category: ' + selectedItem.category : ''">
                 </p>
 
                 <a
                     class="block mt-2 text-turquoise underline text-sm font-medium"
-                    :href="selectedItem?.shop_link"
+                    :href="selectedItem?.shop_link || '#'"
                     target="_blank"
+                    x-text="selectedItem ? 'Where can I buy it?' : ''"
                 >
-                    Where can I buy it?
                 </a>
-                <!-- Button für das item einzufügen -->
+
             </div>
         </div>
     </article>

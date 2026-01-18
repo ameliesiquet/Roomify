@@ -27,73 +27,45 @@
 
                 {{-- Budget --}}
                 <section>
+
                     <x-texts.modal-section-header
                         title="Budget"
                         wire:click="openBudgetEditModal">
                     </x-texts.modal-section-header>
+                    @if($editingBudget)
+                        <div>
+                            <label class="text-sm text-turquoise uppercase">Budget</label>
+                            <input type="number"
+                                   wire:model="editingBudgetValue"
+                                   placeholder="2000"
+                                   step="0.1"
+                                   class="text-xs mt-1 w-full bg-transparent border focus:outline-none p-2 rounded-lg
+                      @error('editingBudgetValue') border-red-500 @else border-gray-700 @enderror" />
+                            @error('editingBudgetValue')
+                            <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span>
+                            @enderror
 
-
-                    <div class="bg-white p-6 rounded-2xl shadow-sm">
-                        {{-- Progress Circle --}}
-                        <div class="flex items-center gap-6 mb-4">
-                            <div class="relative w-24 h-24">
-                                @php
-                                    $percentage = $selectedRoomForDetails->budget > 0
-                                        ? round(($selectedRoomForDetails->spent / $selectedRoomForDetails->budget) * 100)
-                                        : 0;
-                                @endphp
-                                <svg class="w-24 h-24 transform -rotate-90">
-                                    {{-- Background circle --}}
-                                    <circle cx="48" cy="48" r="40" stroke="#e5e7eb" stroke-width="8" fill="none"/>
-                                    {{-- Progress circle --}}
-                                    <circle
-                                        cx="48"
-                                        cy="48"
-                                        r="40"
-                                        stroke="#4ade80"
-                                        stroke-width="8"
-                                        fill="none"
-                                        stroke-dasharray="{{ 2 * 3.14159 * 40 }}"
-                                        stroke-dashoffset="{{ 2 * 3.14159 * 40 * (1 - $percentage / 100) }}"
-                                        stroke-linecap="round"
-                                    />
-                                </svg>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <span class="text-xl font-semibold text-gray-800">{{ $percentage }}%</span>
-                                </div>
-                            </div>
-
-                            <div class="flex-1 space-y-2">
-                                <div class="flex items-baseline gap-2">
-                                    <span class="text-sm text-gray-600">Remaining budget:</span>
-                                    <span class="text-2xl font-light text-[#4ade80]">
-                                    {{ number_format($selectedRoomForDetails->budget - $selectedRoomForDetails->spent, 0) }}€
-                                </span>
-                                </div>
-                                <div class="flex items-baseline gap-2">
-                                    <span class="text-sm text-gray-600">You've spend so far:</span>
-                                    <span class="text-xl font-light text-gray-800">
-                                    {{ number_format($selectedRoomForDetails->spent, 0) }}€
-                                </span>
-                                </div>
-                                <div class="flex items-baseline gap-2">
-                                    <span class="text-sm text-gray-600">You can spend up to</span>
-                                    <span class="text-xl font-light text-gray-800">
-                                    {{ number_format($selectedRoomForDetails->budget, 0) }}€
-                                </span>
-                                </div>
+                            <div class="mt-2 flex gap-2">
+                                <x-buttons.turquoise-button wire:click="saveBudgetEdit">
+                                    Save
+                                </x-buttons.turquoise-button>
+                                <x-buttons.white-button wire:click="cancelBudgetEdit">
+                                    Cancel
+                                </x-buttons.white-button>
                             </div>
                         </div>
+                    @endif
 
-                        {{-- Arrow Button --}}
-                        <button
-                            class="ml-auto flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100">
-                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </button>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <x-ui.budget-widget
+                            :spent="$selectedRoomForDetails->spent"
+                            :budget="$selectedRoomForDetails->budget"
+                            variant="full"
+                        circleSize="sm"
+                        />
                     </div>
                 </section>
+
 
                 {{-- Moodboard --}}
                 <livewire:partials.rooms.detail-moodboard :room="$selectedRoomForDetails"/>

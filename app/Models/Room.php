@@ -10,12 +10,20 @@ class Room extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'name', 'budget', 'spent', 'colors', 'notes', 'todo_list'
+        'user_id',
+        'name',
+        'budget',
+        'spent',
+        'colors',
+        'notes',
+        'todo_list',
+        'is_example',
     ];
 
     protected $casts = [
         'colors' => 'array',
         'todo_list' => 'array',
+        'is_example' => 'boolean',
     ];
 
     public function user()

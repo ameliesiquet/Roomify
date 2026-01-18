@@ -19,6 +19,9 @@ class Rooms extends Component
     public $colors = [];
     public $todo_list = [];
 
+    public $editingBudget = false;
+    public $editingBudgetValue = null;
+
     public function mount()
     {
         $this->loadRooms();
@@ -28,6 +31,7 @@ class Rooms extends Component
     {
         $user = Auth::user();
         $this->rooms = $user->rooms()->with('items')->get();
+        $this->messages = $this->getMessages();
     }
 
     public function openAddRoomModal()
@@ -47,22 +51,45 @@ class Rooms extends Component
 
     public function openRoomDetailsModal($roomId)
     {
-        logger('openRoomDetailsModal called with roomId: ' . $roomId);
-
         $this->selectedRoomForDetails = $this->rooms->find($roomId);
-
-        logger('selectedRoomForDetails: ' . ($this->selectedRoomForDetails ? 'found' : 'null'));
-
+        $this->editingBudget = false;
         $this->showRoomDetailsModal = true;
-
-        logger('showRoomDetailsModal set to: ' . $this->showRoomDetailsModal);
     }
 
     public function closeRoomDetailsModal()
     {
         $this->showRoomDetailsModal = false;
         $this->selectedRoomForDetails = null;
+        $this->editingBudget = false;
     }
+
+    public function openBudgetEditModal()
+    {
+        $this->editingBudget = true;
+        $this->editingBudgetValue = $this->selectedRoomForDetails->budget;
+    }
+
+    public function cancelBudgetEdit()
+    {
+        $this->editingBudget = false;
+        $this->editingBudgetValue = null;
+    }
+
+    public function saveBudgetEdit()
+    {
+        $this->validate([
+            'editingBudgetValue' => 'required|numeric|min:0',
+        ]);
+
+        $this->selectedRoomForDetails->budget = $this->editingBudgetValue;
+        $this->selectedRoomForDetails->save();
+
+        $this->editingBudget = false;
+        $this->editingBudgetValue = null;
+
+        $this->loadRooms();
+    }
+
     protected function rules()
     {
         return [
@@ -80,6 +107,7 @@ class Rooms extends Component
             'budget.min' => 'Budget must be at least 0.',
         ];
     }
+
     public function createRoom()
     {
         $this->validate();
@@ -91,7 +119,7 @@ class Rooms extends Component
             'budget' => $this->budget ?: 0,
             'spent' => 0,
             'colors' => $this->colors,
-            'todo_list' => $this->todo_list ,
+            'todo_list' => $this->todo_list,
         ]);
 
         session()->flash('message', 'Raum "' . $this->name . '" wurde erfolgreich erstellt!');
@@ -104,12 +132,12 @@ class Rooms extends Component
     {
         $this->colors[] = '#d6d3c9';
     }
+
     public function removeColor($index)
     {
         unset($this->colors[$index]);
         $this->colors = array_values($this->colors);
     }
-
 
     public function addTodo()
     {
@@ -125,12 +153,12 @@ class Rooms extends Component
         $this->todo_list = array_values($this->todo_list);
     }
 
-
     protected function getMessages(): array
     {
         $messages = [];
         $realRoomsCount = $this->rooms
             ->where('is_example', false)
+            ->filter(fn($r) => $r->is_example !== true)
             ->count();
 
         if ($realRoomsCount === 0) {
@@ -142,11 +170,10 @@ class Rooms extends Component
 
         return $messages;
     }
+
     public function deleteRoom()
     {
-        if (!$this->selectedRoomForDetails) {
-            return;
-        }
+        if (!$this->selectedRoomForDetails) return;
 
         Room::find($this->selectedRoomForDetails->id)?->delete();
 
@@ -155,6 +182,7 @@ class Rooms extends Component
         $this->closeRoomDetailsModal();
         $this->loadRooms();
     }
+
     public function addItemToRoom($itemId, $roomId)
     {
         $room = Room::find($roomId);
@@ -177,6 +205,24 @@ class Rooms extends Component
         }
 
         $room->load('items');
+        $this->loadRooms();
+    }
+
+    public function removeItemFromRoom($itemId, $roomId)
+    {
+        $room = Room::find($roomId);
+        $item = Item::find($itemId);
+
+        if (!$room || !$item) return;
+
+        $room->items()->detach($itemId);
+
+        if ($item->price) {
+            $room->decrement('spent', $item->price);
+        }
+
+        $room->load('items');
+        $this->loadRooms();
     }
 
     public function render()
