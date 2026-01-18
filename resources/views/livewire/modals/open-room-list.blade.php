@@ -1,4 +1,5 @@
 <!-- MODAL -->
+
 <div
     x-show="showRoomListModal"
     x-cloak
@@ -6,7 +7,7 @@
     @click.self="showRoomListModal = false"
 >
 
-    <article class="bg-white p-6 rounded-xl max-w-4xl shadow-xl z-50">
+    <article class="bg-white p-4 rounded-xl max-w-4xl shadow-xl z-50">
 
         <button
             class="mb-2 cursor-pointer"
@@ -15,25 +16,39 @@
             <x-svg.arrow-left></x-svg.arrow-left>
         </button>
 
-
-
         <div class="w-60">
-            <h2 class="text-md font-semibold mb-3">Add to Room</h2>
+            <x-texts.modal-section-header title="Add to Room" :editable="false"></x-texts.modal-section-header>
 
-            <!-- Users Rooms -->
+            {{-- Room list --}}
             <template x-for="room in userRooms" :key="room.id">
-                <button class="w-full text-left px-3 py-2 hover:bg-gray-100 rounded mb-1"
-                        @click="console.log('Add item', selectedRoomItemId, 'to room', room.id)">
+                <button
+                    class="w-full text-left py-2 rounded mb-1 text-xs"
+                    :class="selectedRoomId === room.id
+                        ? 'bg-gray-200 font-semibold'
+                        : 'hover:bg-gray-100'"
+                    @click="selectedRoomId = room.id"
+                >
                     <span x-text="room.name"></span>
                 </button>
             </template>
 
-            <hr class="my-2">
-
-            <button class=" text-black py-2 rounded hover:font-bold"
-                    @click="console.log('Open Add Room Modal');">
-                + New Room
+            <button
+                class="bg-turquoise text-white p-2 rounded mb-2 text-sm mt-2 w-full"
+                :disabled="!selectedRoomId"
+                @click="
+        $wire.addItemToRoom(selectedRoomItemId, selectedRoomId)
+            .then(() => {
+                successMessage = 'Item successfully added!';
+                showRoomListModal = false;
+                selectedRoomId = null;
+                selectedRoomItemId = null;
+                setTimeout(() => successMessage = '', 3000);
+            });
+    "
+            >
+                Save
             </button>
+
         </div>
     </article>
 </div>
