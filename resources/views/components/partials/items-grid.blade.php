@@ -3,8 +3,12 @@
     'showCategoryFilter' => false,
     'selectedCategory' => 'all',
     'onItemClick' => null,
-    'plusButtonAction' => null
+    'plusButtonAction' => null,
+    'showRemoveButton' => false,
+    'removeButtonAction' => null,
+    'roomId' => null,
 ])
+
 
 <div class="
     grid
@@ -51,15 +55,31 @@
                 </div>
             </div>
 
-            <div class="absolute top-2 right-2">
+            <div class="absolute top-2 right-2 flex gap-1">
+                {{-- Plus Button --}}
                 @if($plusButtonAction)
-                    <button @click.stop="{{ str_replace('{itemId}', $item->id, $plusButtonAction) }}">
+                    <button
+                        @click.stop="{{ str_replace('{itemId}', $item->id, str_replace('{roomId}', $roomId, $plusButtonAction)) }}"
+                        class="bg-white/80 hover:bg-white rounded-full p-1.5 shadow-md transition"
+                        title="Add to list"
+                    >
                         @include('components.svg.plus')
                     </button>
-                @else
-                    <x-svg.plus class="w-5 h-5 text-gray-500"/>
                 @endif
+
+                {{-- Remove Button --}}
+                @if($showRemoveButton && $removeButtonAction)
+                    <button
+                        wire:click.stop="{{ str_replace('{itemId}', $item->id, str_replace('{roomId}', $roomId, $removeButtonAction)) }}"
+                        class="bg-white/80 hover:bg-white rounded-full p-1.5 shadow-md transition rotate-45"
+                        title="Remove item"
+                    >
+                        <x-svg.plus class="w-4 h-4 transform rotate-45 text-red-500"/>
+                    </button>
+                @endif
+
             </div>
+
         </div>
     @endforeach
 </div>
