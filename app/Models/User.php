@@ -22,12 +22,13 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var list<string>
      */
     protected $fillable = [
-        'firstname',
-        'lastname',
-        'username',
+        'name',
         'email',
         'password',
-        'profile_photo_path',
+        'firstname',
+        'lastname',
+        'total_budget',
+
     ];
 
     /**
@@ -50,6 +51,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'total_budget' => 'decimal:2',
         ];
     }
     public function getAuthIdentifierName(): string
