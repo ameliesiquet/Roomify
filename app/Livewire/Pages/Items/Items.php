@@ -2,30 +2,82 @@
 
 namespace App\Livewire\Pages\Items;
 
-use Illuminate\Support\Facades\Auth;
+use App\Models\Item;
+use App\Models\Room;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Items extends Component
 {
+    public $items = [];
+    public $rooms = [];
+    public $categories = [];
+
+    public function mount()
+    {
+        $user = Auth::user();
+
+
+        $this->rooms = $user->rooms()->get();
+
+
+        $this->items = $this->rooms
+            ->pluck('items')
+            ->flatten();
+
+
+        $this->categories = $this->items
+            ->pluck('category')
+            ->filter()
+            ->unique()
+            ->values();
+    }
+
     protected function getMessages(): array
     {
-        $messages = [];
+        if ($this->items->isEmpty()) {
+            return [
+                [
+                    'component' => 'ui.messages.no-items-message',
+                    'props' => [],
+                ]
+            ];
+        }
 
-        $messages[] = [
-            'component' => 'ui.messages.no-items-message',
-            'props' => [],
-        ];
-        // wenn räume und so kommen anpassen mit mereren optionen
+        return [];
+    }
+    public function addItemToRoom($itemId, $roomId)
+    {
+        $room = Room::find($roomId);
+        $item = Item::find($itemId);
 
-        return $messages;
+        if (!$room || !$item) return;
+
+        $existing = $room->items()->where('item_id', $itemId)->first();
+
+        if ($existing) {
+            $room->items()->updateExistingPivot($itemId, [
+                'quantity' => $existing->pivot->quantity + 1
+            ]);
+        } else {
+            $room->items()->attach($itemId, ['quantity' => 1]);
+        }
+
+        if ($item->price) {
+            $room->increment('spent', $item->price);
+        }
+
+        $room->load('items');
     }
     public function render()
     {
         return view('livewire.pages.items.items', [
-            'messages' => $messages = $this->getMessages(),
+            'items' => $this->items,
+            'rooms' => $this->rooms,
+            'categories' => $this->categories,
+            'messages' => $this->getMessages(),
         ])->layout('layouts.app-sidebar', [
             'title' => 'Your Items',
         ]);
     }
 }
-
