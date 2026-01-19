@@ -1,7 +1,7 @@
 <x-guest-layout class="flex flex-col justify-center">
-    <h1 class="font-medium text-lg">Welcome to Roomify!</h1>
+    <h1 class="font-medium text-xl">Welcome to Roomify!</h1>
     <section class="flex flex-col items-baseline justify-center space-y-6">
-        <h2 class="text-xl font-medium text-gray-900 mb-2 self-baseline">
+        <h2 class="text-lg uppercase font-medium text-gray-900 mb-2 self-baseline">
             Plan your move with ease 🏠✨
         </h2>
 
@@ -40,7 +40,7 @@
     </section>
 
 @guest
-    <div class="flex gap-3">
+    <div class="flex gap-3 bg-mywhite p-8 rounded-lg max-w-fit">
         <a class="underline text-xs text-gray-600 hover:text-gray-900 rounded-md"
            href="{{ route('login') }}">
             <x-button class="ms-3">
