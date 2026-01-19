@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        if (app()->environment('local')) {
+            $this->call([
+                UserSeeder::class,
+                RoomSeeder::class,
+            ]);
+        }
+
         $this->call([
-            UserSeeder::class,
-            RoomSeeder::class,
             ItemSeeder::class,
         ]);
     }
