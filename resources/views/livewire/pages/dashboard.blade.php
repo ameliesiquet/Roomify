@@ -16,7 +16,7 @@
     <section class="inspiration">
         <x-texts.second-title>Inspiration</x-texts.second-title>
         <div>
-            <x-ui.inspirationbox :items="$inspirations" />
+            <x-ui.inspiration-box :items="$inspirations" />
         </div>
     </section>
 
