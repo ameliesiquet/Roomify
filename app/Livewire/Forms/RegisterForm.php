@@ -74,7 +74,6 @@ class RegisterForm extends Form
         $user = User::create($validated);
 
         Auth::login($user);
-        Session::regenerate();
         Session::put('first_registration', true);
     }
 

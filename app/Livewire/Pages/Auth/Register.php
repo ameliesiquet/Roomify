@@ -14,13 +14,14 @@ class Register extends Component
     use WithFileUploads;
     public RegisterForm $form;
 
-    public function register(): void
+    public function register()
     {
         $this->validate();
-
         $this->form->register();
-        $this->redirect(route('dashboard'));
+
+        return redirect()->route('dashboard');
     }
+
 
     public function render()
     {
