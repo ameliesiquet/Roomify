@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +27,6 @@ class RegisterForm extends Form
 
     #[Validate('required|string|max:255')]
     public string $username = '';
-
 
     #[Validate('required|string|lowercase|email|max:255|unique:users,email')]
     public string $email = '';
@@ -52,11 +52,7 @@ class RegisterForm extends Form
      */
     public function register(): void
     {
-        try {
-            $validated = $this->validate();
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            throw $e;
-        }
+        $validated = $this->validate();
 
         if (User::where('email', $validated['email'])->exists()) {
             throw ValidationException::withMessages([
@@ -73,9 +69,11 @@ class RegisterForm extends Form
 
         $user = User::create($validated);
 
-        Auth::login($user);
-        Session::regenerate();
-        Session::put('first_registration', true);
-    }
+        event(new Registered($user));
 
+        Auth::login($user, true);
+
+        session()->put('first_registration', true);
+        session()->save();
+    }
 }

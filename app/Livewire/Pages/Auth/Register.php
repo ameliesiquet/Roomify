@@ -3,6 +3,7 @@
 namespace App\Livewire\Pages\Auth;
 
 use App\Livewire\Forms\RegisterForm;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -14,12 +15,14 @@ class Register extends Component
     use WithFileUploads;
     public RegisterForm $form;
 
-    public function register(): void
+    public function register()
     {
         $this->validate();
-
         $this->form->register();
-        $this->redirect(route('dashboard'));
+
+        session()->save();
+
+        return redirect()->route('dashboard');
     }
 
     public function render()
@@ -30,5 +33,4 @@ class Register extends Component
                 'header' => 'Create an account',
             ]);
     }
-
 }
