@@ -29,13 +29,17 @@
                     x-text="selectedItem?.title || 'No title available'">
                 </h2>
 
-                <p class="text-gray-600 break-words"
+                <p class="text-gray-600 break-words text-sm"
                    x-text="selectedItem?.description || 'No description available'">
                 </p>
 
-                <p class="text-gray-600 text-sm"
-                   x-text="selectedItem ? 'Size: ' + selectedItem.size : ''">
-                </p>
+                <template x-if="selectedItem?.size">
+                    <p class="text-gray-600 text-sm">
+                        <span class="font-medium">Size:</span>
+                        <span x-text="selectedItem.size"></span>
+                    </p>
+                </template>
+
 
                 <p class="text-xl font-light"
                    x-text="selectedItem ? selectedItem.price + ' €' : ''">
@@ -45,13 +49,16 @@
                    x-text="selectedItem ? 'Category: ' + selectedItem.category : ''">
                 </p>
 
-                <a
-                    class="block mt-2 text-turquoise underline text-sm font-medium"
-                    :href="selectedItem?.shop_link || '#'"
-                    target="_blank"
-                    x-text="selectedItem ? 'Where can I buy it?' : ''"
-                >
-                </a>
+                <template x-if="selectedItem?.item_url">
+                    <a
+                        class="block mt-2 text-turquoise underline text-sm font-medium"
+                        :href="selectedItem.item_url"
+                        target="_blank"
+                    >
+                        Where can I buy this item?
+                    </a>
+                </template>
+
 
             </div>
         </div>

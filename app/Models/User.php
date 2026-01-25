@@ -56,10 +56,10 @@ class User extends Authenticatable implements MustVerifyEmail
             'total_budget' => 'decimal:2',
         ];
     }
-    public function getAuthIdentifierName(): string
+ /*   public function getAuthIdentifierName(): string
     {
         return 'username';
-    }
+    }*/
 
     public function sendEmailVerificationNotification(): void
     {

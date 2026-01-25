@@ -40,6 +40,11 @@
                 <h3 class="text-sm lg:text-md xl:text-xl line-clamp-2 text-nowrap overflow-hidden">
                     {{ $item->title }}
                 </h3>
+                @if(!$item->is_public && $item->user_id === auth()->id())
+                    <span class="absolute top-2 left-2 text-xs bg-gray-800 text-white px-2 py-0.5 rounded">
+        Private
+    </span>
+                @endif
 
                 <div class="flex flex-col sm:flex-row justify-between items-baseline gap-1 sm:gap-2 text-gray-500 mt-1 flex-wrap">
                     <span class="text-s">

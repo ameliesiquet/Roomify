@@ -13,7 +13,7 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        $room = Room::create([
+        /*$room = Room::create([
             'user_id' => $user->id,
             'name' => 'Example',
             'budget' => 2400,
@@ -33,7 +33,7 @@ class UserObserver
             $room->items()->attach($item->id, [
                 'quantity' => rand(1, 2),
             ]);
-        }
+        }*/
     }
 
 

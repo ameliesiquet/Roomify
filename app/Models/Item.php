@@ -11,14 +11,16 @@ class Item extends Model
 
     protected $fillable = [
         'title',
-        'category',
+        'description',
         'price',
         'size',
+        'category',
         'image_url',
-        'description',
-        'link',
-        'tags'
+        'item_url',
+        'is_public',
+        'user_id',
     ];
+
 
     protected $casts = [
         'tags' => 'array',

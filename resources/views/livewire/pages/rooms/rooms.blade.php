@@ -1,7 +1,6 @@
 <section
     x-data="{
         selectedRoomId: {{ $rooms->first()->id ?? 'null' }},
-        selectedRoom: null,
         successMessage: '',
         userRooms: @js($rooms),
         selectedRoomItemId: null,
@@ -24,8 +23,25 @@
             return room.items.filter(item => item.category === this.selectedCategory);
         }
     }"
+    x-init="
+        window.addEventListener('new-room-created', event => {
+            selectedRoomId = event.detail.id;
+        });
+    "
     class="relative"
 >
+
+
+@if(!$hasData)
+        <section>
+            @foreach($messages as $message)
+                <x-dynamic-component
+                    :component="$message['component']"
+                    :attributes="$message['props']"
+                />
+            @endforeach
+        </section>
+    @else
     {{-- Success --}}
     <div x-show="successMessage" x-transition class="text-green-600 z-50 mb-8 text-sm">
         <span x-text="successMessage"></span>
@@ -66,7 +82,6 @@
         @foreach($rooms as $room)
             <div x-show="selectedRoomId === {{ $room->id }}" x-cloak>
 
-                {{-- HEADER --}}
                 <div class="mb-8">
                     <div class="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 items-baseline max-w-6xl">
 
@@ -107,7 +122,6 @@
                                 >
                                     All
                                 </button>
-
                                 @php
                                     $categories = $room->items->pluck('category')->unique()->filter();
                                 @endphp
@@ -138,9 +152,9 @@
                     <x-partials.items-grid
                         :items="$room->items"
                         :showCategoryFilter="true"
-                        selectedCategory="selectedCategory" {{-- einfach als String für Alpine --}}
+                        selectedCategory="selectedCategory"
                         :onItemClick="'selectedItem = item'"
-                        :plusButtonAction="'openRoomListModal(item.id)'" {{-- hier die Änderung --}}
+                        :plusButtonAction="'openRoomListModal(item.id)'"
                         :showRemoveButton="true"
                         :removeButtonAction="'removeItemFromRoom(item.id, '.$room->id.')'"
                     />
@@ -153,9 +167,36 @@
 
             </div>
         @endforeach
+            <button
+                wire:click="openAddModal"
+                aria-label="Add Item"
+                class="
+        fixed bottom-6 right-6 z-50
+        rounded-full
+        bg-black/10
+        backdrop-blur-sm
+        p-[2px] sm:p-1
+        transition-all duration-200
+        hover:scale-105
+    "
+            >
+                <x-svg.add-camera-button
+                    class="
+            block
+            w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20
+            drop-shadow-[0_18px_45px_rgba(0,0,0,0.45)]
+        "
+                />
+            </button>
     </div>
+    @endif
 
     @include('livewire.modals.add-room')
     @include('livewire.modals.room-details')
     @include('livewire.modals.open-room-list')
+    @include('livewire.modals.add-item-modal', [
+    'assignToRoom' => true,
+    'userRooms' => $rooms
+])
+
 </section>
