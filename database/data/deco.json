@@ -8,7 +8,7 @@
         "image_url": "/images/deco/deco-3dprints.webp",
         "shop_link": "https://www.temu.com/be/2d-flat-3-2d-flat-prints--abstract-simple--framed-canvas-paintings-and-posters-ready-to-hang-home-decoration-wall--decoration-hd-prints-holiday-gifts-living-room-bedroom-dining-room-office-decoration-hanging-paintings-g-601100698609761.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Corner Bookshelf",
@@ -19,7 +19,7 @@
         "image_url": "/images/deco/deco-cornerbookshelf.webp",
         "shop_link": "https://www.temu.com/be/corner-shelf-rustic-5-tier-wall-corner-bookshelf-stylish-corner-small-bookcase-storage-rack-plant-stand-with-unique-shape-for-living-room-home-office-g-601100360920708.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Golden abstract figurine",
@@ -30,7 +30,7 @@
         "image_url": "/images/deco/deco-goldfigure.webp",
         "shop_link": "https://www.temu.com/be/modern-minimalist-gold-tone-abstract-figurine-bookends--home-office-or-living-room-decor-g-601099576002529.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Golden automatic fountain",
@@ -41,7 +41,7 @@
         "image_url": "/images/deco/deco-goldfoutnaine.webp",
         "shop_link": "https://www.temu.com/be/small-indoor-fountain-automatic-humidifier-desktop-decor-for-living-room-and-bedroom-relaxation-craft-g-601099620738317.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Pair of blue golden swans",
@@ -52,7 +52,7 @@
         "image_url": "/images/deco/deco-swans.webp",
         "shop_link": "https://www.temu.com/be/pair-of-blue-golden--figurines-with-rose-accents-handcrafted-resin--office-desk-shelf-decor-luxury-gift-for-housewarming-wedding-anniversary-indoor-ornament-sophisticated-ornament-premium--swan-decor-interior-designers-g-601100636519559.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "White abstract faces",
@@ -63,6 +63,6 @@
         "image_url": "/images/deco/deco-whiteabstractfaces.webp",
         "shop_link": "https://www.temu.com/be/3pcs-set-creative-resin-mask-abstract-statue--style-abstract-art-sculpture-home-decor-coffee-table-office-desk-living-room--suitable-for-friends-holiday-gifts-g-601102466503449.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     }
 ]

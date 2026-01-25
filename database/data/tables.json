@@ -8,7 +8,7 @@
         "image_url": "/images/table/table-nextbed.webp",
         "shop_link": "https://www.temu.com/be/--gift-that---to--handmade-white-round-table-coffee-table--cabinet-living-room-sofa-side-table-balcony-sofa-side-table-bedside-table-storage-rack-living-room-furniture-art-deco-side-table-console-table-for-living-room-tables-for-living-room-living-room-end-tables-center-table-for-living-room-home-decor-sofa-side-table-stylish-console--metal-table-durable-g-601099746756982.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Round wooden table",
@@ -19,7 +19,7 @@
         "image_url": "/images/table/table-roundwood.webp",
         "shop_link": "https://www.temu.com/be/round-living-room-coffee-table-2-tier-farmhouse-coffee-table-with-u-shaped-frame-low-accent-center-cocktail-table-for-home-apartment-natural-g-601102494458876.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "White flower formed table",
@@ -30,6 +30,6 @@
         "image_url": "/images/table/table-whiteflower.webp",
         "shop_link": "",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     }
 ]

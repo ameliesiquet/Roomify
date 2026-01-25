@@ -8,7 +8,7 @@
         "image_url": "/images/carpet/carpet-blue.webp",
         "shop_link": "https://www.temu.com/be/ultra-soft-plush-area-mat-machine-washable-easy-to-clean-rectangular-shape-for-living-room-bedroom-decor--gift-for---contemporary-style-machine-washable-mat-rugs-for-living-room-g-601101593610513.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Blue Orange Grey carpet",
@@ -19,7 +19,7 @@
         "image_url": "/images/carpet/carpet-blueorangegrey.webp",
         "shop_link": "https://www.temu.com/be/velvet-carpet-850-grams-per--washable-modern-rug-suitable-for-bedrooms--and-living-rooms-this-small-carpet-is-machine-washable-non-slip-and-features-a-vintage--is-lightweight-with-low-pile-and-printed-velvet-ideal-for-dining-rooms--and-soft-indoor-spaces--rooms-living-rooms-bedrooms-and-dining-areas-g-601100577094856.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Coloured carpet",
@@ -30,7 +30,7 @@
         "image_url": "/images/carpet/carpet-bunt.webp",
         "shop_link": "https://www.temu.com/be/a-fully-covered-soft-plush-area-rug-made-of-100-polyester-with-a-polypropylene-backing--only-a-soft-rectangular-carpet-for-decorating-bedrooms-playrooms-and-dorms--comfort-to-the-room-bedroom-rug-g-601101645303074.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Cat carpet",
@@ -41,7 +41,7 @@
         "image_url": "/images/carpet/carpet-cat.webp",
         "shop_link": "https://www.temu.com/be/velvet-1pc-cute-kitten-pattern-aesthetic-and-exquisite-feature-mat--soft-comfortable-light-beige--decor-doormat-practical-easy-to--washable-room-mat-for-bedroom-living-room-sofa-side-or--the-bed-extra-large-rugs-for-living-room-thick-floor-mat--for-living-room-brown-rugs-for-living-room--for-living-room-bedroom-mat-sofa-side-mat-aesthetic-doormat-stylish-floor-mat--material-g-601101900088395.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Grey carpet",
@@ -52,6 +52,6 @@
         "image_url": "/images/carpet/carpet-grey.webp",
         "shop_link": "https://www.temu.com/be/rectangular--tie-dye--100-polyester-soft-and-durable-with-lightweight-design-large-size-thickened-mat-suitable-for-bedroom-living-room-game-room--home-decor--accent-g-601101582862671.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     }
 ]

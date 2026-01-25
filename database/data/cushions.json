@@ -8,7 +8,7 @@
         "image_url": "/images/cushion/cushion-blakishgreen.webp",
         "shop_link": "https://www.temu.com/be/2pcs-velvet-round-pumpkin--plush-throw-pillow-suitable-for-sofa-bed-dressing-chair-bedroom-living-room--decoration-with-center-button-autumn-and-halloween-decoration-g-601102366379192.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Butterfly cushion",
@@ -19,7 +19,7 @@
         "image_url": "/images/cushion/cushion-butterfly.webp",
         "shop_link": "https://www.temu.com/be/---polyester-hand-washable--bedroom-and-office-decor-stylish-accent-elegant-design--material-plush-texture-accent-cushion-gift--interior-designers-g-601103260084191.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Flower cushion",
@@ -30,7 +30,7 @@
         "image_url": "/images/cushion/cushion-flower.webp",
         "shop_link": "https://www.temu.com/be/--floral-decorative-pillow-cute-and--shaped-cushion-plush-floor-pillow-for-spring-easter-bedroom-living-room-decoration-spring-gift-for--g-601100972808085.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Flower print cushion",
@@ -41,7 +41,7 @@
         "image_url": "/images/cushion/cushion-printflower.webp",
         "shop_link": "https://www.temu.com/be/4pcs-single-sided-print-pillowcase-sweet--lavender-flower-pillowcase--set-17-7-17-7in-home-decoration-pillowcase-suitable-for-living-room-sofa-bedroom-without-pillow-cor-g-601100044508912.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Sage green cushion",
@@ -52,7 +52,7 @@
         "image_url": "/images/cushion/cushion-sagegreen.webp",
         "shop_link": "https://www.temu.com/be/2-pack--bohemian-farmhouse-throw-pillow-covers-reversible-striped-corduroy-square-lumbar-pillow-cases-with-hidden-zipper-soft-plush--accent-for-sofa-couch--room-decor-pillow-covers-only--styling-textured-design-premium-fabric-decorative-pillows--g-601099525856835.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Wine red cushion",
@@ -63,6 +63,6 @@
         "image_url": "/images/cushion/cushion-winered.webp",
         "shop_link": "https://www.temu.com/be/set-of-4--chair-cushions-with-ties-40cm-40cm-soft-cozy-velvet-seat-pads-for-kitchen-dining-chairs-office-living-room-chairs-cushion-only-g-601102216787596.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     }
 ]

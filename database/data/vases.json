@@ -8,7 +8,7 @@
         "image_url": "/images/vase/vase-abstractwomen.webp",
         "shop_link": "https://www.temu.com/be/modern-abstract--ceramic-vase-elegant-white-rectangular-vase-with--texture--minimalist-tabletop-centerpiece-for-home-decor-durable-ceramic-flower-vase-for-living-room-office-wedding-birthday-gift-abstract-character-shape-with-geometric-pattern-unique--for-interior-decoration-sturdy-base-for-stability-versatile-for-floral-arrangements-vases-for-dining-table-big-vases-home-decor-living-room-wedding-vase-g-601100670930120.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Vase cute person form",
@@ -19,7 +19,7 @@
         "image_url": "/images/vase/vase-cuteperson.webp",
         "shop_link": "https://www.temu.com/be/1pc-small-cute-flower-pot-decoration-ornament-flower-pot-indoor-modern-decorative-pots-for-plants-with-drainage-hole-and-tray-for-garden-statue-decorations-ornaments-g-601099558384986.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Modern rose vase",
@@ -30,7 +30,7 @@
         "image_url": "/images/vase/vase-rosemodern.webp",
         "shop_link": "https://www.temu.com/be/-modern-abstract-vase-leak-proof-thick-base-elegant-pink-floral-centerpiece-for-living-room-bedroom-office-contemporary-home-decor-durable-resin-construction-no-electricity-needed-scandinavian-minimalist-decoration-geometric-pattern---decorative-piece-interior-designers-g-601102953974441.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Stone coloured vase",
@@ -41,7 +41,7 @@
         "image_url": "/images/vase/vase-stonecolor.webp",
         "shop_link": "https://www.temu.com/be/3pcs-resin-stone-vase-set-vases-cant-store-water-can-only-decorate-artificial-flowers--deer-christmas-elk-set-table-decoration-for-living-room-dining-room-tv-cabinet-housewarming-gift-no-power-supply-g-601101368849618.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Creative white vase",
@@ -52,7 +52,7 @@
         "image_url": "/images/vase/vase-whitecreative.webp",
         "shop_link": "https://www.temu.com/be/1-set-modern-minimalist-creative-hug-plastic-vase-set-living-room-entryway-tv-cabinet-decoration-home-decor-bottle-home-decor-and-accessories-home-decor-decorative-home-decoration-vase-decorative-ornament-for-living-room-dining-table-centerpiece-plastic-vase-black-vase-home-decor-flower-vase-decorative-vase-g-601103355850628.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "White gold vase",
@@ -63,7 +63,7 @@
         "image_url": "/images/vase/vase-whitegold.webp",
         "shop_link": "https://www.temu.com/be/2pcs-boho-style-ceramic-vase-set-white-golden-round-bud-vases-with-golden-accents--centerpieces-home-decor-living-room-kitchen--decor-vase-elegant-ceramic-vase-decorative-vase-g-601100376002484.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "White striped vase",
@@ -74,6 +74,6 @@
         "image_url": "/images/vase/vase-whitestriped.webp",
         "shop_link": "https://www.temu.com/be/elegant-20cm-striped-ceramic-vase-with-skirt--modern---fresh-and-hydroponic-flowers-international-style-flower-arrangement-elegant-decor-striped-texture-vases-home-decor-g-601100075232034.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     }
 ]

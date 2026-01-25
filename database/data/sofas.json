@@ -8,7 +8,7 @@
         "image_url": "/images/sofa/sofa-green.webp",
         "shop_link": "https://www.temu.com/be/256cm-100inch-modern-corduroy-sofa-4-seater-sofa-couch-seats-with-2-throw-pillows-comfy-couch-boneless-sectional-sofa-for-living-room-corduroy-sectional-sofa-convertible-sofa-compressed-sofa-for-living--saving-couch-family--convertible-sofa-couch-modern-living-room-sofa-contemporary-sofa-design-modern-corduroy-fabric-premium-fabric-upholstery-sturdy-sectional-build-modern-apartment--small-space--g-601103183651668.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Grey sofa",
@@ -19,7 +19,7 @@
         "image_url": "/images/sofa/sofa-grey.webp",
         "shop_link": "https://www.temu.com/be/modern--deep-seat-living-room-bedroom-upholstered-sofa-no--fully-compressed-boneless-sofa-g-601101977737494.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Rose sofa",
@@ -30,7 +30,7 @@
         "image_url": "/images/sofa/sofa-rose.webp",
         "shop_link": "https://www.temu.com/be/cloud-sectional-sofa-with-ottoman-plush-chenille-loveseat-w-2-lumbar-cushions-decorative-pillows-wide-armrests-soft-pink-retro---for-living-room-cozy-compact-sofa-bed-alternative-durable-comfortable-seating-g-601103667063435.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "White sofa",
@@ -41,7 +41,7 @@
         "image_url": "/images/sofa/sofa-white.webp",
         "shop_link": "https://www.temu.com/be/convertible-3-seat-l-shaped-sectional-sofa-with-removable-storage-ottoman-modern--design-hardwood-frame--pet--room-couch-for-apartments-offices-small-spaces-sectional-sofa-for-living-room-versatile--contemporary-furniture-sturdy-wooden-legs-spacesaving-furniture-stylish-furniture-durable-construction-apartment-furniture-g-601101354165985.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "White flower sofa",
@@ -52,7 +52,7 @@
         "image_url": "/images/sofa/sofa-whiteflower.webp",
         "shop_link": "https://www.temu.com/be/79-inch-modern--shaped-compression-sofa-packaged-in-a-box-no--soft-ice-fleece-fabric--filling-pad-ergonomic-support-non-slip--suitable-for-living-rooms-bedrooms-and-small-space-apartments-g-601101688995379.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Modern white sofa",
@@ -63,7 +63,7 @@
         "image_url": "/images/sofa/sofa-whitemodern.webp",
         "shop_link": "https://www.temu.com/be/modern--deep-seat-living-room-bedroom-upholstered-sofa-no--fully-compressed-boneless-sofa-g-601101387452758.html",
         "is_public": true,
-        "user_id": 1,
+        "user_id": null,
     },
     {
         "title": "Yellow sofa",
@@ -74,6 +74,6 @@
         "image_url": "/images/sofa/sofa-yellow.webp",
         "shop_link": "https://www.temu.com/be/giant-single-bean-bag-chair-modern-tufted-floor-sofa-with-lambskin-like-cover-slip-design-easy-clean-yellow-upholstery-no--portable-lounger-for-s-living-room-bedroom-office-boho-g-601104328156425.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     }
 ]

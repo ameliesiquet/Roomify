@@ -8,7 +8,7 @@
         "image_url": "/images/chairs/chair-pink.webp",
         "shop_link": "https://www.temu.com/be/1pc-contemporary-velvet-dining-chair-with-bow-accent-elegant-metal-frame-soft-cushioned-backrest-sturdy-construction-no-electricity-needed-g-601104553522939.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Vintage Green Chair",
@@ -19,7 +19,7 @@
         "image_url": "/images/chairs/chair-vintagegreen.webp",
         "shop_link": "https://www.temu.com/be/elegant-teal-golden-upholstered-makeup-vanity-chair--frame-with-white-non-slip-feet-no--sturdy-posture-supporting-for-dressing-table-bedroom-or-carpeted-floors-durable-chair-like-g-601103277535167.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Pink Mussel Chair",
@@ -30,7 +30,7 @@
         "image_url": "/images/chairs/chair-pinkmussel.webp",
         "shop_link": "https://www.temu.com/be/upholstered-dining-room-chairs-dressing-table-chair-velvet-petal-backrest-recliner-chair-with-metal-legs-golden--load-150kg-chaise-confortable-restaurant-furniture-furniture-for-home-chaise-de-cuisine-confortable--home-dining-furniture-elegant-design-stylish-seating-memory-foam-cushion-durable-construction-comfortable-seating-restaurant-owners--g-601099659698065.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Elegant formed white Chair",
@@ -41,7 +41,7 @@
         "image_url": "/images/chairs/chair-whiteelegantformed.webp",
         "shop_link": "https://www.temu.com/be/elegant-fabric--with-backrest--memory-foam-cushion-ideal-for-bedroom-dressing-room-or-nail-salon-easy-assembly-no-power-needed-nail---chair-wooden-frame-chair-nail--g-601103052354634.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     },
     {
         "title": "Rounded white Chair",
@@ -52,6 +52,6 @@
         "image_url": "/images/chairs/chair-whiterounded.webp",
         "shop_link": "https://www.temu.com/be/white-metal-frame-cream-vanity-stool-with-soft-cushioned-seat-padded-non-slip-friendly-round-front-loading--for-girls-bedroom-dressing-table-salon-easy-clean-modern-minimalist-no-assembly-luxury-like-accent-ottoman--bedroom-stool-for-makeup-makeup-ottoman-stool-storage-ottoman-make-up-stool-vanity-storage-stool-ottoman-chic-round--s-vintage-make-up-stool-stool-for-vanityk-stools-for-vanity--with-g-601099817648266.html",
         "is_public": true,
-        "user_id": 1
+        "user_id": null
     }
 ]
