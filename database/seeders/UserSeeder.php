@@ -20,13 +20,16 @@ class UserSeeder extends Seeder
             'profile_photo_path' => 'profile-photos/profile.jpg',
             'password' => bcrypt('password')
         ]);
-        User::factory()->create([
+        User::firstOrCreate(
+            ['id' => 1],
+            [
             'firstname' => 'Amélie',
             'lastname' => 'Siquet',
             'username' => 'amsel',
             'email' => 'am@ex.com',
             'profile_photo_path' => 'profile-photos/profile.jpg',
-            'password' => bcrypt('#1Password')
-        ]);
+            'password' => bcrypt('#1Password'),
+            ]
+        );
     }
 }
