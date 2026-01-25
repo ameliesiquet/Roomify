@@ -31,32 +31,32 @@
 
     <div class="flex-1 min-w-0">
         @if($variant === 'compact')
-            <p class="flex items-baseline gap-2 mb-1">
+            <p class="flex flex-wrap items-baseline gap-2 mb-1">
                 <span class="text-xs text-gray-600">Remaining:</span>
                 <span class="text-lg font-light {{ $statusColor }}">
                     {{ number_format($remaining, 0) }}€
                 </span>
             </p>
-            <p class="text-xs text-gray-500">
+            <p class="text-xs text-gray-500 break-words">
                 {{ $statusMessage }}
             </p>
         @else
-            <div class="space-y-2">
-                <p class="flex items-baseline gap-2">
+            <div class="space-y-1 sm:space-y-2">
+                <p class="flex flex-wrap items-baseline gap-2">
                     <span class="text-sm text-gray-600">Remaining budget:</span>
-                    <span class="text-xl font-light {{ $statusColor }}">
+                    <span class="text-lg sm:text-xl font-light {{ $statusColor }}">
                         {{ number_format($remaining, 0) }}€
                     </span>
                 </p>
-                <p class="flex items-baseline gap-2">
+                <p class="flex flex-wrap items-baseline gap-2">
                     <span class="text-xs text-gray-600">You've spent so far:</span>
-                    <span class="text-l font-light text-gray-800">
+                    <span class="text-sm sm:text-l font-light text-gray-800">
                         {{ number_format($spent, 0) }}€
                     </span>
                 </p>
-                <p class="flex items-baseline gap-2">
+                <p class="flex flex-wrap items-baseline gap-2">
                     <span class="text-xs text-gray-600">You can spend up to:</span>
-                    <span class="text-l font-light text-gray-800">
+                    <span class="text-sm sm:text-l font-light text-gray-800">
                         {{ number_format($budget, 0) }}€
                     </span>
                 </p>
@@ -64,3 +64,4 @@
         @endif
     </div>
 </div>
+
