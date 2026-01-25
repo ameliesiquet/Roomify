@@ -2,17 +2,23 @@
 
 namespace App\Livewire\Pages\Rooms;
 
+use App\Livewire\Traits\HasItems;
 use App\Models\Item;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Room;
+use Livewire\WithFileUploads;
 
 class Rooms extends Component
 {
-    public $rooms;
+    use HasItems;
+    use WithFileUploads;
     public $showAddRoomModal = false;
     public $showRoomDetailsModal = false;
     public $selectedRoomForDetails = null;
+    public $selectedRoomIdForNewItem;
+    public $showAddModal = false;
+
 
     public $name = '';
     public $budget = '';
@@ -21,7 +27,18 @@ class Rooms extends Component
 
     public $editingBudget = false;
     public $editingBudgetValue = null;
+    public $rooms = [];
+    public $userRooms = [];
 
+    public $title = '';
+    public $description = '';
+    public $price = '';
+    public $size = '';
+    public $category = '';
+    public $image = null;
+    public $item_url = '';
+    public $shop_link = '';
+    public $is_public = false;
     public function mount()
     {
         $this->loadRooms();
@@ -30,7 +47,9 @@ class Rooms extends Component
     public function loadRooms()
     {
         $user = Auth::user();
-        $this->rooms = $user->rooms()->with('items')->get();
+        $this->rooms = $user->rooms()->with(['items' => function($query) {
+            $query->orderByPivot('created_at', 'desc');
+        }])->get();
         $this->messages = $this->getMessages();
     }
 
@@ -113,7 +132,7 @@ class Rooms extends Component
         $this->validate();
         $user = Auth::user();
 
-        Room::create([
+        $room = Room::create([
             'user_id' => $user->id,
             'name' => $this->name,
             'budget' => $this->budget ?: 0,
@@ -126,6 +145,7 @@ class Rooms extends Component
 
         $this->closeAddRoomModal();
         $this->loadRooms();
+        $this->dispatch('new-room-created', ['id' => $room->id]);
     }
 
     public function addColor()
@@ -224,13 +244,65 @@ class Rooms extends Component
         $room->load('items');
         $this->loadRooms();
     }
+    public function getHasDataProperty()
+    {
+        return $this->rooms->where('is_example', false)->count() > 0;
+    }
+
+
+    public function createItem()
+    {
+        $this->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'category' => 'required|string',
+            'image' => 'required|image|max:2048',
+            'item_url' => 'required|url|max:2000',
+        ]);
+
+        $imagePath = $this->image ? $this->image->store('items', 'public') : null;
+
+        $item = Item::create([
+            'user_id' => auth()->id(),
+            'title' => $this->title,
+            'description' => $this->description,
+            'price' => $this->price,
+            'size' => $this->size,
+            'category' => $this->category,
+            'image_url' => $imagePath ? asset('storage/' . $imagePath) : null,
+            'item_url' => $this->item_url,
+            'shop_link' => $this->shop_link,
+            'is_public' => $this->is_public,
+        ]);
+
+        if (!empty($this->selectedRoomIdForNewItem)) {
+            $room = Room::find($this->selectedRoomIdForNewItem);
+            if ($room) {
+                $room->items()->attach($item->id, ['quantity' => 1]);
+                if ($item->price) {
+                    $room->increment('spent', $item->price);
+                }
+                $room->load('items');
+            }
+        }
+
+        $this->closeAddModal();
+
+        $this->loadRooms();
+
+        session()->flash('message', 'Item "' . $this->title . '" wurde erfolgreich erstellt!');
+    }
+
 
     public function render()
     {
         return view('livewire.pages.rooms.rooms', [
             'messages' => $this->getMessages(),
+            'hasData' => $this->rooms->where('is_example', false)->count() > 0,
         ])->layout('layouts.app-sidebar', [
             'title' => 'Your Rooms',
         ]);
     }
+
 }

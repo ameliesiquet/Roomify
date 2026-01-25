@@ -18,8 +18,14 @@
 
         <div class="w-60">
             <x-texts.modal-section-header title="Add to Room" :editable="false"></x-texts.modal-section-header>
-
-            {{-- Room list --}}
+            <template x-if="!userRooms || userRooms.length === 0">
+                <div class="flex flex-col items-left justify-center  text-left gap-2 py-2">
+                    <p class="text-gray-700 text-sm">
+                        No rooms yet ... <br>
+                    </p>
+                    <a href="/rooms" class="text-turquoise underline text-xs">Create my first room</a>
+                </div>
+            </template>
             <template x-for="room in userRooms" :key="room.id">
                 <button
                     class="w-full text-left py-2 rounded mb-1 text-xs"

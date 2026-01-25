@@ -91,6 +91,7 @@ class Budget extends Component
         $this->loadBudgetData();
 
         session()->flash('message', 'Total budget updated successfully!');
+        $this->messages = $this->getMessages();
     }
 
     public function getSelectedRoomProperty()
@@ -131,7 +132,7 @@ class Budget extends Component
             'rooms' => $this->rooms,
             'selectedRoom' => $this->selectedRoom,
             'categoryDistribution' => $this->categoryDistribution,
-            'hasData' => $this->rooms->count() > 0 && $this->appTotalBudget > 0,
+            'hasData' =>  $this->appTotalBudget > 0,
         ])->layout('layouts.app-sidebar', [
             'title' => 'Your Budget',
         ]);

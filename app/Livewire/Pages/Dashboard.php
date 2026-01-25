@@ -16,6 +16,9 @@ class Dashboard extends Component
     public $totalBudget = 0;
     public $totalSpent = 0;
     public $rooms = [];
+    public $appTotalBudget = 0;
+    public $editingTotalBudget = false;
+    public $editingTotalBudgetValue = 0;
 
     public function mount()
     {
@@ -23,7 +26,37 @@ class Dashboard extends Component
         $this->loadUserData();
         $this->messages = $this->getMessages();
     }
+    public function openTotalBudgetEdit()
+    {
+        $this->editingTotalBudget = true;
+        $this->editingTotalBudgetValue = $this->appTotalBudget;
+    }
 
+    public function cancelTotalBudgetEdit()
+    {
+        $this->editingTotalBudget = false;
+        $this->editingTotalBudgetValue = 0;
+        $this->resetValidation();
+    }
+
+    public function saveTotalBudgetEdit()
+    {
+        $this->validate([
+            'editingTotalBudgetValue' => 'required|numeric|min:0',
+        ]);
+
+        $user = Auth::user();
+
+
+        $updated = $user->update(['total_budget' => $this->editingTotalBudgetValue]);
+
+
+        $this->appTotalBudget = $this->editingTotalBudgetValue;
+        $this->editingTotalBudget = false;
+        $this->loadBudgetData();
+
+        session()->flash('message', 'Total budget updated successfully!');
+    }
     protected function loadUserData()
     {
         $user = Auth::user();

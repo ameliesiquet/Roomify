@@ -55,11 +55,8 @@
 
                 {{-- Moodboard --}}
                 <section>
-                    <x-texts.modal-section-header
-                        title="Moodboard"
-                        :editable="false"
-                    />
-                    <div class="flex flex-wrap gap-4">
+                    <label class="text-sm text-turquoise uppercase">Moodboard</label>
+                    <div class="flex flex-wrap gap-4 mt-2">
                         @foreach($colors as $index => $color)
                             <div class="flex items-center gap-2">
                                 <div class="relative w-6 h-6">
@@ -97,7 +94,7 @@
                 </section>
 
 
-                {{-- To-do list --}}
+                {{-- To-do list
                 <section>
                     <h3 class="text-sm text-gray-500 mb-3">To do</h3>
                     <ul class="space-y-2">
@@ -121,7 +118,7 @@
                         + Add task
                     </button>
                 </section>
-
+                --}}
             </form>
 
             {{-- FOOTER --}}

@@ -92,7 +92,7 @@
                                     ? round(($room->budget / $appTotalBudget) * 100)
                                     : 0;
                             @endphp
-                            <div class="flex flex-col items-center">
+                            <div class="flex flex-col items-start self-center">
                                 <x-ui.budget-circle
                                     :spent="$room->spent"
                                     :budget="$room->budget"
@@ -109,72 +109,74 @@
             </div>
         </section>
 
-        <x-texts.modal-section-header title="Your Rooms" :editable="false"></x-texts.modal-section-header>
+        @if($rooms->count() > 0)
+            <x-texts.modal-section-header title="Your Rooms" :editable="false"></x-texts.modal-section-header>
 
-        <section class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
-            <div class="flex items-center gap-2 overflow-x-auto mb-6 pb-2 border-b border-b-mybeige">
-                @foreach($rooms as $room)
-                    <button
-                        wire:click="selectRoom({{ $room->id }})"
-                        @class([
-                            'flex items-center gap-2 px-4 py-2 text-sm rounded-lg whitespace-nowrap transition-colors',
-                            'text-turquoise font-semibold' => $selectedRoomId === $room->id,
-                            'text-gray-600 hover:text-gray-900' => $selectedRoomId !== $room->id,
-                        ])
-                    >
-                        @if(str_contains(strtolower($room->name), 'kitchen'))
-                            <x-svg.kitchen class="w-4 h-4" />
-                        @elseif(str_contains(strtolower($room->name), 'bedroom'))
-                            <x-svg.bed class="w-4 h-4" />
-                        @elseif(str_contains(strtolower($room->name), 'bathroom'))
-                            <x-svg.bath class="w-4 h-4" />
-                        @elseif(str_contains(strtolower($room->name), 'living'))
-                            <x-svg.sofa class="w-4 h-4" />
-                        @else
-                            <x-svg.sofa class="w-4 h-4" />
-                        @endif
-                        <span>{{ $room->name }}</span>
-                    </button>
-                @endforeach
-            </div>
-
-            @if($selectedRoom)
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div>
-                        <x-ui.budget-widget
-                            :spent="$selectedRoom->spent"
-                            :budget="$selectedRoom->budget"
-                            variant="detailed"
-                            circleSize="md"
-                        />
-                    </div>
-
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-700 mb-4">Category Distribution</h3>
-                        <div class="space-y-4">
-                            @foreach($categoryDistribution as $category => $data)
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-3">
-                                        <x-dynamic-component
-                                            :component="'svg.' . strtolower($category)"
-                                            class="w-4 h-4 text-turquoise"
-                                        />
-                                        <span class="text-sm text-gray-700">{{ ucfirst($category) }}</span>
-                                    </div>
-                                    <span class="text-lg font-light text-gray-900">{{ $data['percentage'] }}%</span>
-                                </div>
-                            @endforeach
-
-                            @if(count($categoryDistribution) === 0)
-                                <p class="text-sm text-gray-500 text-left py-4">
-                                    No items in this room yet
-                                </p>
+            <section class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
+                <div class="flex items-center gap-2 overflow-x-auto mb-6 pb-2 border-b border-b-mybeige">
+                    @foreach($rooms as $room)
+                        <button
+                            wire:click="selectRoom({{ $room->id }})"
+                            @class([
+                                'flex items-center gap-2 px-4 py-2 text-sm rounded-lg whitespace-nowrap transition-colors',
+                                'text-turquoise font-semibold' => $selectedRoomId === $room->id,
+                                'text-gray-600 hover:text-gray-900' => $selectedRoomId !== $room->id,
+                            ])
+                        >
+                            @if(str_contains(strtolower($room->name), 'kitchen'))
+                                <x-svg.kitchen class="w-4 h-4" />
+                            @elseif(str_contains(strtolower($room->name), 'bedroom'))
+                                <x-svg.bed class="w-4 h-4" />
+                            @elseif(str_contains(strtolower($room->name), 'bathroom'))
+                                <x-svg.bath class="w-4 h-4" />
+                            @elseif(str_contains(strtolower($room->name), 'living'))
+                                <x-svg.sofa class="w-4 h-4" />
+                            @else
+                                <x-svg.sofa class="w-4 h-4" />
                             @endif
+                            <span>{{ $room->name }}</span>
+                        </button>
+                    @endforeach
+                </div>
+
+                @if($selectedRoom)
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <x-ui.budget-widget
+                                :spent="$selectedRoom->spent"
+                                :budget="$selectedRoom->budget"
+                                variant="detailed"
+                                circleSize="md"
+                            />
+                        </div>
+
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-700 mb-4">Category Distribution</h3>
+                            <div class="space-y-4">
+                                @foreach($categoryDistribution as $category => $data)
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-3">
+                                            <x-dynamic-component
+                                                :component="'svg.' . strtolower($category)"
+                                                class="w-4 h-4 text-turquoise"
+                                            />
+                                            <span class="text-sm text-gray-700">{{ ucfirst($category) }}</span>
+                                        </div>
+                                        <span class="text-lg font-light text-gray-900">{{ $data['percentage'] }}%</span>
+                                    </div>
+                                @endforeach
+
+                                @if(count($categoryDistribution) === 0)
+                                    <p class="text-sm text-gray-500 text-left py-4">
+                                        No items in this room yet
+                                    </p>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endif
-        </section>
+                @endif
+            </section>
+        @endif
 
     @endif
 </div>

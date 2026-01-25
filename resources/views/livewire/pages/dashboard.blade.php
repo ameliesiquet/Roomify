@@ -39,8 +39,10 @@
 
                 </div>
             @else
-                <x-ui.messages.no-budget-message />
+                <x-ui.messages.no-budget-message action="route" />
+
             @endif
+
         </section>
 
         {{-- Rooms Section --}}

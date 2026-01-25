@@ -72,7 +72,7 @@
 
 
                 {{-- To-do  --}}
-                <livewire:partials.rooms.detail-todo :room="$selectedRoomForDetails"/>
+               {{-- <livewire:partials.rooms.detail-todo :room="$selectedRoomForDetails"/>--}}
 
                 {{-- Notes Section --}}
                 <livewire:partials.rooms.detail-notes :room="$selectedRoomForDetails"/>
