@@ -18,8 +18,6 @@
                 </div>
                 <input type="file" id="profile_photo" wire:model="form.profile_photo" class="hidden" accept="image/*">
             </div>
-            <!-- Name -->
-            <div class="flex justify-between gap-4">
                 <!-- Firstname -->
                 <x-form.field-label-input
                         label="Firstname"
@@ -42,7 +40,6 @@
                         required
                         class="capitalize"
                 />
-            </div>
             <!-- Email -->
             <x-form.field-label-input
                     label="Email"
